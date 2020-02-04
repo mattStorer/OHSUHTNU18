@@ -1,0 +1,84 @@
+{
+  "resourceType": "Observation",
+  "id": "SMART-Observation-699-bp",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2017-10-18T18:13:07.000+00:00"
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2007-09-13: Blood pressure 110/67 mmHg</div>"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/observation-category",
+          "code": "vital-signs",
+          "display": "Vital Signs",
+          "userSelected": false
+        }
+      ],
+      "text": "Vital Signs"
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "55284-4",
+        "display": "Blood pressure systolic and diastolic",
+        "userSelected": false
+      }
+    ],
+    "text": "Blood pressure systolic and diastolic"
+  },
+  "subject": {
+    "reference": "Patient/SMART-1186747"
+  },
+  "context": {
+    "reference": "Encounter/SMART-Encounter-699"
+  },
+  "effectiveDateTime": "2007-09-13T00:00:00-06:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "8480-6",
+            "display": "Systolic blood pressure",
+            "userSelected": false
+          }
+        ],
+        "text": "Systolic blood pressure"
+      },
+      "valueQuantity": {
+        "value": 110,
+        "unit": "mmHg",
+        "system": "http://unitsofmeasure.org",
+        "code": "mm[Hg]"
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "8462-4",
+            "display": "Diastolic blood pressure",
+            "userSelected": false
+          }
+        ],
+        "text": "Diastolic blood pressure"
+      },
+      "valueQuantity": {
+        "value": 67,
+        "unit": "mmHg",
+        "system": "http://unitsofmeasure.org",
+        "code": "mm[Hg]"
+      }
+    }
+  ]
+}

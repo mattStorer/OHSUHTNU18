@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templateConfig>
+    <templates>
+        <template name="patientBundle" file="templates/Bundle.json">
+            <templates>
+                <template name="resources" file="templates/PatientResource.json" delim=",">
+                    <query>
+                        select pat_study_id as patientId,
+                        given_name as givenName,
+                        family_name as familyName,
+                        gender,
+                        date_format(birth_date, "%Y-%m-%d") as dobShortFormat,
+                        date_format(birth_date, "%e %M %Y") as dobLongFormat,
+                        date(now()) as lastUpdatedDate,
+                        time(now()) as lastUpdatedTime
+                        from patient
+                    </query>
+                </template>
+            </templates>
+        </template>
+        <template name="encounterBundle" file="templates/Bundle.json">
+            <templates>
+                <template name="resources" file="templates/EncounterResource.json" delim=",">
+                    <query>
+                        select pat_enc_csn_study_id as encounterId,
+                        pat_study_id as patientId,
+                        date(start_date) as encBeginDate,
+                        time(start_date) as encBeginTime,
+                        date(end_date) as encEndDate,
+                        time(end_date) as encEndTime,
+                        date(now()) as lastUpdatedDate,
+                        time(now()) as lastUpdatedTime
+                        from encounter
+                    </query>
+                </template>
+            </templates>
+        </template>
+        <template name="bpBundle" file="templates/Bundle.json">
+            <templates>
+                <template name="resources" file="templates/Observation55284-4Resource.json" delim=",">
+                    <query>
+                        select concat("OHSUHTNU18-", id) as observationId,
+                        pat_study_id as patientId,
+                        pat_enc_csn_study_id as encounterId,
+                        date(recorded_time) as effectiveDate,
+                        time(recorded_time) as effectiveTime,
+                        date(now()) as lastUpdatedDate,
+                        time(now()) as lastUpdatedTime,
+                        substring_index(meas_value, '/', 1) as systolic,
+                        substring_index(meas_value, '/', -1) as diastolic
+                        from bpdata
+                        where meas_value is not null
+                    </query>
+                </template>
+            </templates>
+        </template>
+    </templates>
+</templateConfig>

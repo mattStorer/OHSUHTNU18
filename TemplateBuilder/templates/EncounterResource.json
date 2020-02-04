@@ -1,0 +1,30 @@
+{
+  "resource": {
+    "resourceType": "Encounter",
+    "id": "${encounterId}",
+    "meta": {
+      "versionId": "1",
+      "lastUpdated": "${lastUpdatedDate}T${lastUpdatedTime}.000+00:00"
+    },
+    "text": {
+      "status": "generated",
+      "div": "<div xmlns=\\\"http://www.w3.org/1999/xhtml\\\">${encBeginDate}: ambulatory encounter</div>"
+    },
+    "status": "finished",
+    "class": {
+      "system": "http://hl7.org/fhir/v3/ActCode",
+      "code": "AMB"
+    },
+    "subject": {
+      "reference": "Patient/${patientId}"
+    },
+    "period": {
+      "start": "${encBeginDate}T${encBeginTime}-07:00",
+      "end": "${encEndDate}T${encEndTime}-07:00"
+    }
+  },
+  "request": {
+    "method": "PUT",
+    "url": "Encounter/${encounterId}"
+  }
+}

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loading</title>
+    <script type="text/javascript" src="js/fhir-client.js"></script>
+    <script type="text/javascript">
+        FHIR.oauth2.authorize({
+            "client_id": "7c9e60b7-09c8-4587-9aa0-4dc74299b804",    // STU3
+            "scope"    : "launch patient/*.read"
+        });
+    </script>
+</head>
+<body>
+    Loading...
+</body>
+</html>

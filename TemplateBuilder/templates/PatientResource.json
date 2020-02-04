@@ -1,0 +1,30 @@
+{
+  "resource": {
+    "resourceType": "Patient",
+    "id": "${patientId}",
+    "meta": {
+      "versionId": "1",
+      "lastUpdated": "${lastUpdatedDate}T${lastUpdatedTime}.000+00:00"
+    },
+    "text": {
+      "status": "generated",
+      "div": "<div xmlns=\\\"http://www.w3.org/1999/xhtml\\\"><div class=\\\"hapiHeaderText\\\">${givenName} <b>${familyName} </b></div><table class=\\\"hapiPropertyTable\\\"><tbody><tr><td>Date of birth</td><td><span>${dobLongFormat}</span></td></tr></tbody></table></div>"
+    },
+    "active": true,
+    "name": [
+      {
+        "text": "${givenName} ${familyName}",
+        "family": "${familyName}",
+        "given": [
+          "${givenName}"
+        ]
+      }
+    ],
+    "gender": "${gender}",
+    "birthDate": "${dobShortFormat}"
+  },
+  "request": {
+    "method": "PUT",
+    "url": "Patient/${patientId}"
+  }
+}
