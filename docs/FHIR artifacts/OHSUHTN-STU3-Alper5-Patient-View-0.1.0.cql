@@ -1,4 +1,4 @@
-library ALPER_5 version '1.0'
+library OHSUHTN_STU3_Alper5_Patient_View version '0.1.0'
 
 /*
   Alper Recommendation #5 reads as follows:
@@ -59,13 +59,6 @@ library ALPER_5 version '1.0'
       nor can the blood pressure readings be consistent.
     - some of the wording in this is confusing.  how can hypertension be
       only suspected when the diagnosis is also certain?
-*/
-
-/*
-  Inclusion criteria:
-
-  Exclusion criteria:
-
 */
 
 using FHIR version '3.0.2'  /* STU3 */
