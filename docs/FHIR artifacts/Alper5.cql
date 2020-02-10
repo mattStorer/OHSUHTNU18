@@ -123,8 +123,20 @@ define "Valid Encounters":
 
 define "Encounters During Measurement Period":
   "Valid Encounters" Encounter
-    where Encounter.relevantPeriod during "Measurement Period"
+    where Encounter.relevantPeriod during MeasurementPeriod
 
+define "Average Blood Pressure":
+  return Tuple { systolic: "Average Systolic Blood Pressure", diastolic: "Average Diastolic Blood Pressure" }
+
+define "Average Systolic Blood Pressure":
+  Avg([Observation: "Systolic Blood Pressure"] O
+    where O.effectiveDateTime during MeasurementPeriod)
+
+// same as in the FHIR app, need to get observation.valueQuantity.value for LOINC 8462-4 and 8480-6,
+// or observation.
+define "Average Diastolic Blood Pressure":
+  Avg([Observation: "Diastolic Blood Pressure"] O
+    where O.effectiveDateTime during MeasurementPeriod)
 
 define "Suspected Hypertension"
   [Encounter: "Outpatient"] E

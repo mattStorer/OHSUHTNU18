@@ -98,6 +98,7 @@ function buildHTNRulerRequest(fhirServer, bearerToken, patientId, code) {
       "hookInstance" : genUUID(),
       "fhirServer" : fhirServer,
       "hook" : "patient-view",
+      "applyCql": true,
       "fhirAuthorization" : {
         "access_token" : bearerToken,
         "token_type" : "Bearer",
@@ -107,7 +108,7 @@ function buildHTNRulerRequest(fhirServer, bearerToken, patientId, code) {
       },
       "context" : {
     //                      "userId" : "Practitioner/example",
-          "patientId" : patientId,
+          "patientId" : "Patient/" + patientId,
           "code" : "http://loinc.org|" + code
       },
       "prefetch" : {
