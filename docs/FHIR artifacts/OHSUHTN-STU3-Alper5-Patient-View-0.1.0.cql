@@ -66,12 +66,14 @@ using FHIR version '3.0.2'  /* STU3 */
 // http://hl7.org/fhir/STU3/library-fhir-helpers.json.html
 include FHIRHelpers version '1.8' called FHIRHelpers
 
-codesystem "LOINC": 'urn:oid:2.16.840.1.113883.6.1'
+codesystem "LOINC": 'http:/loinc.org' // 'urn:oid:2.16.840.1.113883.6.1'
 codesystem "ICD-9-CM": 'urn:oid:2.16.840.1.113883.6.103'
 codesystem "ICD-10-CM": 'urn:oid:2.16.840.1.113883.6.90'
 codesystem "SNOMED-CT": 'urn:oid:2.16.840.1.113883.6.96'
 
-code "Blood Pressure": '55284-4' from "LOINC" display 'Blood pressure'
+code "Blood Pressure": '85354-9' from "LOINC" display 'blood pressure'
+// code "Blood Pressure": '55284-4' from "LOINC" display 'Blood pressure'
+
 code "Systolic Blood Pressure": '8480-6' from "LOINC" display 'Systolic blood pressure'
 code "Diastolic Blood Pressure": '8462-4' from "LOINC" display 'Diastolic blood pressure'
 code "Elevated BP without HTN diagnosis": '371622005' from "SNOMED-CT" display 'Elevated BP'
@@ -89,18 +91,67 @@ valueset "Finding of Elevated Blood Pressure": 'urn:oid:2.16.840.1.113762.1.4.10
 
 // parameters
 
-parameter MeasurementPeriod Interval<DateTime>
+// todo: implement parameters when we figure out how to get them to work.  Bryn has provided info but it's convoluted
+// parameter MeasurementPeriod Interval<DateTime>
 
 // context
-
 
 context Patient
 
 // definitions
 
+// todo: remove this hard-coded MeasurementPeriod definition when the parameterized version is working
+define MeasurementPeriod:
+  Interval<DateTime>[@2019-01-01T00:00:00.0, @2019-06-29T23:59:59.0]
+
 // copied from https://github.com/esacinc/CQL-Formatting-and-Usage-Wiki/blob/master/Source/Example%20Measures/EXM137v5/EXM137v5_QDM.cql
-define "In Demographic":
+define "Inclusion Criteria":
   AgeInYearsAt(start of MeasurementPeriod) >= 18
+    // todo: and no HTN diagnosis, nor has been prescribed home BP monitoring
+
+define "Pre-Hypertensive":
+  "Average Blood Pressure" ABP
+    where
+
+define "Blood Pressure Observations":
+  [Observation: "Blood Pressure"] O
+    where "Normalize Interval"(O.effective) during MeasurementPeriod
+      and O.status in { 'final', 'amended' }
+
+define "Average Systolic Blood Pressure":
+  Avg("Blood Pressure Observations" O
+    return FHIRHelpers.ToQuantity(singleton from (O.component C where FHIRHelpers.ToConcept(C.code) ~ "Systolic Blood Pressure").value)
+  )
+
+define "Average Diastolic Blood Pressure":
+  Avg("Blood Pressure Observations" O
+    return FHIRHelpers.ToQuantity(singleton from (O.component C where FHIRHelpers.ToConcept(C.code) ~ "Diastolic Blood Pressure").value)
+  )
+
+define "Average Blood Pressure":
+  Tuple { systolic: "Average Systolic Blood Pressure", diastolic: "Average Diastolic Blood Pressure" }
+
+define function "Normalize Interval"(choice Choice<FHIR.dateTime, FHIR.Period, FHIR.Timing, FHIR.instant, FHIR.string, FHIR.Age, FHIR.Range>):
+  case
+	  when choice is FHIR.dateTime then
+    	Interval[FHIRHelpers.ToDateTime(choice as FHIR.dateTime), FHIRHelpers.ToDateTime(choice as FHIR.dateTime)]
+		when choice is FHIR.Period then
+  		FHIRHelpers.ToInterval(choice as FHIR.Period)
+		when choice is FHIR.instant then
+			Interval[FHIRHelpers.ToDateTime(choice as FHIR.instant), FHIRHelpers.ToDateTime(choice as FHIR.instant)]
+		when choice is FHIR.Age then
+		  Interval[FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity(choice as FHIR.Age),
+			  FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity(choice as FHIR.Age) + 1 year)
+		when choice is FHIR.Range then
+		  Interval[FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity((choice as FHIR.Range).low),
+			  FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity((choice as FHIR.Range).high) + 1 year)
+		when choice is FHIR.Timing then
+		  Message(null as Interval<DateTime>, true, '1', 'Error', 'Cannot compute a single interval from a Timing type')
+    when choice is FHIR.string then
+      Message(null as Interval<DateTime>, true, '1', 'Error', 'Cannot compute an interval from a String value')
+		else
+			null as Interval<DateTime>
+	end
 
 define "Valid Encounters":
   distinct (
@@ -121,24 +172,14 @@ define "Encounters During Measurement Period":
 define "Average Blood Pressure":
   return Tuple { systolic: "Average Systolic Blood Pressure", diastolic: "Average Diastolic Blood Pressure" }
 
-define "Average Systolic Blood Pressure":
-  Avg([Observation: "Systolic Blood Pressure"] O
-    where O.effectiveDateTime during MeasurementPeriod)
-
-// same as in the FHIR app, need to get observation.valueQuantity.value for LOINC 8462-4 and 8480-6,
-// or observation.
-define "Average Diastolic Blood Pressure":
-  Avg([Observation: "Diastolic Blood Pressure"] O
-    where O.effectiveDateTime during MeasurementPeriod)
-
 define "Suspected Hypertension"
   [Encounter: "Outpatient"] E
     with [Observation: "Elevated BP Reading"] O
 
   // I think this is defined as one or more HTN BP readings at 2 or more
 
-define "Diagnostic Uncertainty"
+// define "Diagnostic Uncertainty"
 
-define "Blood Pressure Variability"
+// define "Blood Pressure Variability"
 
-define "Home Blood Pressure Monitoring"
+// define "Home Blood Pressure Monitoring"

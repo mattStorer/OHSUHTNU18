@@ -5,10 +5,10 @@
     "versionId": "1",
     "lastUpdated": "2020-02-10T11:00:00.000-08:00"
   },
-  "url": "http://fhir.org/guides/cdc/opioid-cds/Library/library-opioidcds-stu3-rec-10-patient-view-0-1-0",
+  "url": "https://github.com/mattStorer/OHSUHTNU18/blob/develop/docs/FHIR%20artifacts/Library_ohsuhtn-stu3-alper5-patient-view-0.1.0.json",
   "version": "0.1.0",
-  "name": "OpioidCDS_STU3_REC_10_Patient_View",
-  "title": "Library - Opioid CDS Logic for recommendation #10 (patient-view)",
+  "name": "OHSUHTN_STU3_Alper5_Patient_View",
+  "title": "Library - OHSU Hypertension Logic for Alper Recommendation #5 (patient-view)",
   "status": "active",
   "experimental": false,
   "type": {
@@ -20,11 +20,11 @@
       }
     ]
   },
-  "date": "2018-04-15T13:49:09-06:00",
-  "publisher": "Centers for Disease Control and Prevention (CDC)",
-  "description": "Opioid decision support logic to evaluate whether the patient has had a urine screening in the past 12 months and provide analysis.",
-  "purpose": "The purpose of this library is to determine whether the patient has had a urine screening in the past 12 months. Is so, then check the results for missing opioids that are prescribed, present opioids that aren't prescribed or present illicit drugs.",
-  "usage": "This library is used to notify the prescriber/user whether the patient has had a urine screening in the past 12 months and to provide analysis if true.",
+  "date": "2020-02-04T00:00:00-08:00",
+  "publisher": "Oregon Health and Science University (OHSU)",
+  "description": "In adults with suspected hypertension and without diagnostic uncertainty or blood pressure variability, use home blood pressure monitoring for diagnostic confirmation.",
+  "purpose": "This guideline is implemented to assist with identifying patients with suspected hypertension, and to make appropriate recommendations regarding monitoring and care.",
+  "usage": "This is to be used in conjunction with a patient-facing FHIR application.",
   "useContext": [
     {
       "code": {
@@ -36,24 +36,8 @@
         "coding": [
           {
             "system": "http://snomed.info/sct",
-            "code": "182888003",
-            "display": "Medication requested (situation)"
-          }
-        ]
-      }
-    },
-    {
-      "code": {
-        "system": "http://hl7.org/fhir/usage-context-type",
-        "code": "focus",
-        "display": "Clinical Focus"
-      },
-      "valueCodeableConcept": {
-        "coding": [
-          {
-            "system": "http://snomed.info/sct",
-            "code": "82423001",
-            "display": "Chronic pain (finding)"
+            "code": "371622005",
+            "display": "Elevated BP without HTN diagnosis"
           }
         ]
       }
@@ -72,44 +56,21 @@
   ],
   "topic": [
     {
-      "text": "Opioid Prescribing"
+      "text": "Hypertension Management"
     }
   ],
   "contributor": [
     {
       "type": "author",
-      "name": "Kensaku Kawamoto, MD, PhD, MHS"
-    },
-    {
-      "type": "author",
-      "name": "Bryn Rhodes"
-    },
-    {
-      "type": "author",
-      "name": "Floyd Eisenberg, MD, MPH"
-    },
-    {
-      "type": "author",
-      "name": "Robert McClure, MD, MPH"
+      "name": "Matthew Storer"
     }
   ],
-  "copyright": "© CDC 2016+.",
+  "copyright": "© OHSU 2020+.",
   "relatedArtifact": [
-    {
-      "type": "documentation",
-      "display": "CDC guideline for prescribing opioids for chronic pain",
-      "url": "https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fmmwr%2Fvolumes%2F65%2Frr%2Frr6501e1er.htm"
-    },
     {
       "type": "depends-on",
       "resource": {
         "reference": "Library/library-fhirhelpers-3-0-0"
-      }
-    },
-    {
-      "type": "depends-on",
-      "resource": {
-        "reference": "Library/library-opioidcds-stu3-common-0-1-0"
       }
     },
     {

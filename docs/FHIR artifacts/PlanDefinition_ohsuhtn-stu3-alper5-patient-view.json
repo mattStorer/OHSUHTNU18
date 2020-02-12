@@ -9,7 +9,7 @@
     "status": "generated",
     "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>OHSU HTN U18 Alper5 Recommendation</b></p></div>"
   },
-  "url": "https://github.com/mattStorer/OHSUHTNU18/blob/develop/docs/FHIR%20artifacts/PlanDefinition_ohsuhtn-alper5-patient-view.json",
+  "url": "https://github.com/mattStorer/OHSUHTNU18/blob/develop/docs/FHIR%20artifacts/PlanDefinition_ohsuhtn-stu3-alper5-patient-view.json",
   "identifier": [
     {
       "use": "official",
@@ -45,8 +45,8 @@
         "coding": [
           {
             "system": "http://snomed.info/sct",
-            "code": "182888003",
-            "display": "Medication requested (situation)"
+            "code": "371622005",
+            "display": "Elevated BP without HTN diagnosis"
           }
         ]
       }
@@ -92,51 +92,13 @@
       "action": [
         {
           "title": "Prescribe Home Blood Pressure Monitoring",
-          "description": "Patient has not had a urine screening in the past 12 months",
-          "documentation": [
-            {
-              "type": "documentation",
-              "display": "CDC guideline for prescribing opioids for chronic pain",
-              "url": "https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fmmwr%2Fvolumes%2F65%2Frr%2Frr6501e1er.htm"
-            },
-            {
-              "type": "documentation",
-              "document": {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/StructureDefinition/cqif-strengthOfRecommendation",
-                    "valueCodeableConcept": {
-                      "coding": [
-                        {
-                          "system": "http://hl7.org/fhir/recommendation-strength",
-                          "code": "weak",
-                          "display": "Weak"
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "url": "http://hl7.org/fhir/StructureDefinition/cqif-qualityOfEvidence",
-                    "valueCodeableConcept": {
-                      "coding": [
-                        {
-                          "system": "http://hl7.org/fhir/evidence-quality",
-                          "code": "very-low",
-                          "display": "Very Low quality"
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ],
+          "description": "Patient is pre-hypertensive and should be prescribed home BP monitoring",
           "condition": [
             {
               "kind": "applicability",
-              "description": "Patient has not had a urine screening in the past 12 months",
+              "description": "Average BP over measurement period falls within range of pre-hypertension",
               "language": "text/cql",
-              "expression": "No Urine Screening In Last 12 Months"
+              "expression": "Pre-Hypertensive"
             }
           ],
           "dynamicValue": [
