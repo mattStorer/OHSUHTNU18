@@ -13,7 +13,7 @@ function extractPatientName(p) {
 
 // fetchBloodPressureData adapted from https://docs.smarthealthit.org/client-js/fhirjs-equivalents
 function fetchBloodPressureData(client, _callback) {
-    let loincCodes = ['85354-9']; //, '55284-4', '8462-4', '8480-6'];
+    let loincCodes = ['85354-9', '55284-4']; //, '55284-4', '8462-4', '8480-6'];
     let query = new URLSearchParams();
     query.set("patient", client.patient.id);
 //    query.set("_count", 100); // Try this to fetch fewer pages
