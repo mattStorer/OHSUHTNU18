@@ -1,10 +1,12 @@
-library OHSUHTN_STU3_PreHypertension version '0.1.0'
+library OHSUHTN_STU3_Pre_Hypertension version '0.1.0'
 
-using FHIR version '3.0.2'  /* STU3 */
+using FHIR version '3.0.0'  /* STU3 */
 
 include FHIRHelpers version '3.0.0' called FHIRHelpers
 
-valueset "Blood Pressure": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.2012'
+codesystem "LOINC": 'http:/loinc.org'
+
+valueset "Blood Pressure Measured": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.2012'
 
 code "Blood Pressure": '55284-4' from "LOINC" display 'blood pressure'
 code "Systolic Blood Pressure": '8480-6' from "LOINC" display 'Systolic blood pressure'
@@ -17,7 +19,7 @@ context Patient
 
 // todo: remove this hard-coded MeasurementPeriod definition when the parameterized version is working
 define MeasurementPeriod:
-  Interval<DateTime>[@2019-01-01T00:00:00.0, @2019-06-29T23:59:59.0]
+  Interval[@2019-01-01T00:00:00.0, @2019-06-29T23:59:59.0]
 
 define "Inclusion Criteria":
   AgeInYearsAt(start of MeasurementPeriod) >= 18

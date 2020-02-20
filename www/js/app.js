@@ -43,7 +43,7 @@ function fetchBloodPressureData(client, _callback) {
         });
 
         arr.sort(function(a, b) { return a.date - b.date });
-        _callback(arr);
+        _callback(observations, arr);
     });
 }
 

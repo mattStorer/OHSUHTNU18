@@ -71,7 +71,7 @@
   "copyright": "© OHSU 2020+.",
   "library": [
     {
-      "reference": "Library/library-ohsuhtn-stu3-pre-hypertension-0-1-0"
+      "reference": "Library/ohsuhtn-stu3-pre-hypertension"
     }
   ],
   "action": [

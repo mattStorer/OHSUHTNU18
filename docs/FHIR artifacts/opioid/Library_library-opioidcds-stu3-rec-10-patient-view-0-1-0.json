@@ -1,6 +1,6 @@
 {
   "resourceType": "Library",
-  "id": "library-opioidcds-stu3-rec-10-patient-view-0-1-0",
+  "id": "opioidcds-stu3-rec-10-patient-view",
   "meta": {
     "versionId": "1",
     "lastUpdated": "2019-11-19T11:09:34.051-08:00"
@@ -103,13 +103,13 @@
     {
       "type": "depends-on",
       "resource": {
-        "reference": "Library/library-fhirhelpers-3-0-0"
+        "reference": "Library/fhir-helpers"
       }
     },
     {
       "type": "depends-on",
       "resource": {
-        "reference": "Library/library-opioidcds-stu3-common-0-1-0"
+        "reference": "Library/opioidcds-common"
       }
     },
     {

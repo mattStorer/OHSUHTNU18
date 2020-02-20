@@ -60,7 +60,9 @@ function planDefinitionChanged() {
 function executeSelectedPlanDefinition() {
     let fhirServer = getFHIRServer();
     let bearerToken = getFHIRBearerToken();
-    let patientId = getFHIRPatientId();
+    let user = getFHIRUser();
+    let patient = getFHIRPatient();
+    let observations = getFHIRObservations();
     let planId = $('#planSelect').children("option:selected").attr("value");
 
     $.ajax({
@@ -68,7 +70,7 @@ function executeSelectedPlanDefinition() {
         "type": "POST",
         "dataType": "json",
         "contentType": "application/json; charset=utf-8",
-        "data": JSON.stringify(buildOpioidRulerRequest(fhirServer, bearerToken, patientId)),
+        "data": JSON.stringify(buildOpioidRulerRequest(fhirServer, bearerToken, patient.id)),
         "success": function (obj) {
             populateCards(obj.cards);
         }
@@ -92,38 +94,51 @@ function genUUID() {
     return uuidv4();
 }
 
+/*
+function buildHTNRulerRequest(code) {
+    let user = getFHIRUser();
+    let patient = getFHIRPatient();
+    let observations = getFHIRObservations();
 
-function buildHTNRulerRequest(fhirServer, bearerToken, patientId, code) {
     return {
-      "hookInstance" : genUUID(),
-      "fhirServer" : fhirServer,
-      "hook" : "patient-view",
+      "hookInstance": genUUID(),
+      "fhirServer": getFHIRServer(),
+      "hook": "patient-view",
       "applyCql": true,
-      "fhirAuthorization" : {
-        "access_token" : bearerToken,
-        "token_type" : "Bearer",
-        "expires_in" : 300,
-        "scope" : "patient/Patient.read patient/Observation.read",
-        "subject" : "cds-service4"
+      "fhirAuthorization": {
+        "access_token": getFHIRBearerToken(),
+        "token_type": "Bearer",
+        "expires_in": 300,
+        "scope": "patient/Patient.read patient/Observation.read",
+        "subject": "cds-service4"
       },
-      "context" : {
-    //                      "userId" : "Practitioner/example",
-          "patientId" : "Patient/" + patientId,
-          "code" : "http://loinc.org|" + code
+      "context": {
+        "userId": "Practitioner/" + user.id,
+        "patientId": "Patient/" + patient.id,
+        "code": "http://loinc.org|" + code
       },
-      "prefetch" : {
-          "patient" : "Patient?_id={{context.patientId}}",
-          "observations" : "Observation?patient={{context.patientId}}&code={{context.code}}"
-//          "patientToGreet" : {
-//             "resourceType" : "Patient",
-//             "gender" : "male",
-//             "birthDate" : "1925-12-23",
-//             "id" : "1288992",
-//             "active" : true
-//          }
+      "prefetch": {
+        "patient": {
+           "response": {
+             "status": "200 OK"
+           },
+           "resource": patient
+        }
+        "observations" : {
+          "response": {
+            "status": "200 OK"
+          },
+          "resource": {
+            "resourceType": "Bundle",
+            "id": "ohsu-htn-u18-observations-bundle",
+            "type": "collection",
+            "entry": getFHIRObservations()
+          }
+        }
       }
     };
 }
+*/
 
 // see https://cds-hooks.hl7.org/1.0/#http-request_1 for details
 function buildOpioidRulerRequest(fhirServer, bearerToken, patientId) {

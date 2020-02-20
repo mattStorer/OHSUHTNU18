@@ -61,7 +61,7 @@ library OHSUHTN_STU3_Alper5_Patient_View version '0.1.0'
       only suspected when the diagnosis is also certain?
 */
 
-using FHIR version '3.0.2'  /* STU3 */
+using FHIR version '3.0.0'  /* STU3 */
 
 // http://hl7.org/fhir/STU3/library-fhir-helpers.json.html
 include FHIRHelpers version '1.8' called FHIRHelpers

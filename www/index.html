@@ -30,8 +30,16 @@
             return window.fhirBearerToken;
         }
 
-        function getFHIRPatientId() {
-            return window.fhirPatientId;
+        function getFHIRUser() {
+            return window.fhirUser;
+        }
+
+        function getFHIRPatient() {
+            return window.fhirPatient;
+        }
+
+        function getFHIRObservations() {
+            return window.fhirObservations;
         }
 
         // see the following for FHIR API documentation:
@@ -51,9 +59,6 @@
             FHIR.oauth2.ready(function(client) {
                 window.fhirServer = client.state.serverUrl;
                 window.fhirBearerToken = client.state.tokenResponse.access_token;
-                window.fhirUserId = client.user.id;
-                window.fhirPatientId = client.patient.id;
-                window.fhirEncounterId = client.encounter.id;  // likely null
 
                 $('#loadingContent').addClass('hidden');
                 $('#content').removeClass('hidden');
@@ -65,10 +70,10 @@
 
                 client.user.read().then(function(u) {
                     window.fhirUser = u;
-                    alert(u);
                 });
 
-                fetchBloodPressureData(client, function(data) {
+                fetchBloodPressureData(client, function(observations, data) {
+                    window.fhirObservations = observations;
                     $('#loadingTextInfo').addClass('hidden');
                     $('#textInfo').removeClass('hidden');
                     populateBPList(data, document.getElementById('bpList'));
