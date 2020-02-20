@@ -51,7 +51,7 @@
             FHIR.oauth2.ready(function(client) {
                 window.fhirServer = client.state.serverUrl;
                 window.fhirBearerToken = client.state.tokenResponse.access_token;
-                window.fhirUserId = client.user.id;            // likely null
+                window.fhirUserId = client.user.id;
                 window.fhirPatientId = client.patient.id;
                 window.fhirEncounterId = client.encounter.id;  // likely null
 
@@ -59,7 +59,13 @@
                 $('#content').removeClass('hidden');
 
                 client.patient.read().then(function(p) {
+                    window.fhirPatient = p;
                     document.getElementById('name').innerHTML = extractPatientName(p);
+                });
+
+                client.user.read().then(function(u) {
+                    window.fhirUser = u;
+                    alert(u);
                 });
 
                 fetchBloodPressureData(client, function(data) {
