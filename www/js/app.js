@@ -94,6 +94,25 @@ function getCoding(codings, system) {
     return undefined;
 }
 
+function populateSummaryDiv(data, el) {
+    let totalSystolic = 0;
+    let totalDiastolic = 0;
+    let avgSystolic = 0;
+    let avgDiastolic = 0;
+
+    if (Array.isArray(data) && data.length > 0) {
+        data.forEach(function(o) {
+            totalSystolic += o.systolic;
+            totalDiastolic += o.diastolic;
+        });
+
+        avgSystolic = Math.round(totalSystolic / data.length);
+        avgDiastolic = Math.round(totalDiastolic / data.length);
+    }
+
+    $(el).html("Average BP: " + avgSystolic + "/" + avgDiastolic);
+}
+
 function populateBPList(data, el) {
     let success = false;
 

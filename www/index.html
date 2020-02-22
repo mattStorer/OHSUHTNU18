@@ -76,6 +76,7 @@
                     window.fhirObservations = observations;
                     $('#loadingTextInfo').addClass('hidden');
                     $('#textInfo').removeClass('hidden');
+                    populateSummaryDiv(data, document.getElementById("summaryDiv"));
                     populateBPList(data, document.getElementById('bpList'));
 
                     $('#loadingChart').addClass('hidden');

@@ -65,12 +65,19 @@ function executeSelectedPlanDefinition() {
     let observations = getFHIRObservations();
     let planId = $('#planSelect').children("option:selected").attr("value");
 
+    let data = planId.startsWith("opioidcds") ?
+        buildOpioidRulerRequest(fhirServer, bearerToken, patient.id) :
+        buildHTNRulerRequest("55284-4"); // todo: don't hardcode this
+
+    let dataStr = JSON.stringify(data, null, 2);
+    console.log(dataStr);
+
     $.ajax({
         "url": CDS_SERVICES_URL + "/" + planId,
         "type": "POST",
         "dataType": "json",
         "contentType": "application/json; charset=utf-8",
-        "data": JSON.stringify(buildOpioidRulerRequest(fhirServer, bearerToken, patient.id)),
+        "data": dataStr,
         "success": function (obj) {
             populateCards(obj.cards);
         }
@@ -90,11 +97,11 @@ function populateCards(cards) {
 }
 
 function genUUID() {
-    const uuidv4 = require('uuid/v4');
-    return uuidv4();
+    return "test";
+//    import { v4 as uuidv4 } from 'uuid';
+//    return uuidv4();
 }
 
-/*
 function buildHTNRulerRequest(code) {
     let user = getFHIRUser();
     let patient = getFHIRPatient();
@@ -118,13 +125,13 @@ function buildHTNRulerRequest(code) {
         "code": "http://loinc.org|" + code
       },
       "prefetch": {
-        "patient": {
+        "item1": {
            "response": {
              "status": "200 OK"
            },
            "resource": patient
-        }
-        "observations" : {
+        },
+        "item2": {
           "response": {
             "status": "200 OK"
           },
@@ -132,13 +139,22 @@ function buildHTNRulerRequest(code) {
             "resourceType": "Bundle",
             "id": "ohsu-htn-u18-observations-bundle",
             "type": "collection",
-            "entry": getFHIRObservations()
+            "entry": toBundle(getFHIRObservations())
           }
         }
       }
     };
 }
-*/
+
+function toBundle(arr) {
+  let newArr = arr.map(item => {
+    let r = {};
+    r.resource = item;
+    return r;
+  });
+  return newArr;
+}
+
 
 // see https://cds-hooks.hl7.org/1.0/#http-request_1 for details
 function buildOpioidRulerRequest(fhirServer, bearerToken, patientId) {

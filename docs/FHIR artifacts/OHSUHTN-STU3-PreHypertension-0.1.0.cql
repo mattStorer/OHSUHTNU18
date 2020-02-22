@@ -24,6 +24,29 @@ define MeasurementPeriod:
 define "Inclusion Criteria":
   AgeInYearsAt(start of MeasurementPeriod) >= 18
 
+define "Hypertension Detail":
+  if "Inclusion Criteria" and "Has Hypertension"
+    then 'Patients has hypertension based on average blood pressure'
+  else null
+
+define "Hypertension Summary":
+  if "Inclusion Criteria" and "Has Hypertension"
+    then 'Hypertension'
+  else null
+
+define "Hypertension Indicator":
+  if "Inclusion Criteria"
+    then 'warning'
+  else null
+
+define "Has Hypertension":
+  "Hypertension Blood Pressure" is not null
+
+define "Hypertension Blood Pressure":
+  "Average Blood Pressure" O
+    where O.systolic > 130
+    and O.diastolic > 90
+
 define "Pre-Hypertension Detail":
   if "Inclusion Criteria" and "Is Pre-Hypertensive"
     then 'Patients has pre-hypertension based on average blood pressure'
@@ -46,6 +69,29 @@ define "Pre-Hypertensive Blood Pressure":
   "Average Blood Pressure" O
     where O.systolic between 120 and 130
     and O.diastolic between 80 and 90
+
+define "Normal Detail":
+  if "Inclusion Criteria" and "Is Normal"
+    then 'Patients has normal blood pressure'
+  else null
+
+define "Normal Summary":
+  if "Inclusion Criteria" and "Is Normal"
+    then 'Normal'
+  else null
+
+define "Normal Indicator":
+  if "Inclusion Criteria"
+    then 'info'
+  else null
+
+define "Is Normal":
+  "Normal Blood Pressure" is not null
+
+define "Normal Blood Pressure":
+  "Average Blood Pressure" O
+    where O.systolic < 120
+    and O.diastolic < 80
 
 define "Average Blood Pressure":
   Tuple { systolic: "Average Systolic Blood Pressure", diastolic: "Average Diastolic Blood Pressure" }

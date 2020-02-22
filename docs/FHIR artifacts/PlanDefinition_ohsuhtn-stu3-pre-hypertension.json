@@ -91,8 +91,42 @@
       ],
       "action": [
         {
+          "title": "Determine if patient has hypertension",
+          "description": "This action identifies a patient who has full-blown hypertension (systolic > 130 AND diastolic > 90), based on their average blood pressure over the measurement period.",
+          "condition": [
+            {
+              "kind": "applicability",
+              "description": "Determine if the patient has hypertension",
+              "language": "text/cql",
+              "expression": "Has Hypertension"
+            }
+          ],
+          "dynamicValue": [
+            {
+              "path": "action.description",
+              "expression": "Hypertension Detail"
+            },
+            {
+              "path": "action.title",
+              "expression": "Hypertension Summary"
+            },
+            {
+              "path": "action.extension",
+              "expression": "Hypertension Indicator"
+            }
+          ],
+          "action": [
+            {
+              "description": "Do something"
+            },
+            {
+              "description": "Do something else, or nothing at all"
+            }
+          ]
+        },
+        {
           "title": "Determine if patient has pre-hypertension",
-          "description": "This action identifies whether or not a patient is pre-hypertensive (systolic 120-130, diastolic 80-90), based on their average blood pressure over the measurement period.",
+          "description": "This action identifies a patient who IS pre-hypertensive (systolic 120-130 AND diastolic 80-90), based on their average blood pressure over the measurement period.",
           "condition": [
             {
               "kind": "applicability",
@@ -113,6 +147,40 @@
             {
               "path": "action.extension",
               "expression": "Pre-Hypertension Indicator"
+            }
+          ],
+          "action": [
+            {
+              "description": "Do something"
+            },
+            {
+              "description": "Do something else, or nothing at all"
+            }
+          ]
+        },
+        {
+          "title": "Determine if patient has normal blood pressure readings",
+          "description": "This action indicates if a patient has normal blood pressure readings (systolic < 120 AND diastolic < 80), based on their average blood pressure over the measurement period.",
+          "condition": [
+            {
+              "kind": "applicability",
+              "description": "Determine if the patient's blood pressure is normal",
+              "language": "text/cql",
+              "expression": "Is Normal"
+            }
+          ],
+          "dynamicValue": [
+            {
+              "path": "action.description",
+              "expression": "Normal Detail"
+            },
+            {
+              "path": "action.title",
+              "expression": "Normal Summary"
+            },
+            {
+              "path": "action.extension",
+              "expression": "Normal Indicator"
             }
           ],
           "action": [

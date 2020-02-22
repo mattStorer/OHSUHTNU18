@@ -17,6 +17,6 @@
     "chart.js": "^2.9.2",
     "chartjs-plugin-annotation": "^0.5.7",
     "regression": "^2.0.1",
-    "uuid": "^3.3.3"
+    "uuid": "^3.4.0"
   }
 }
