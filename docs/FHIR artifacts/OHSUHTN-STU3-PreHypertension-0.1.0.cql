@@ -18,11 +18,30 @@ code "Diastolic Blood Pressure": '8462-4' from "LOINC" display 'Diastolic blood 
 context Patient
 
 // todo: remove this hard-coded MeasurementPeriod definition when the parameterized version is working
-define MeasurementPeriod:
+define "MeasurementPeriod":
   Interval[@2019-01-01T00:00:00.0, @2019-06-29T23:59:59.0]
 
 define "Inclusion Criteria":
-  AgeInYearsAt(start of MeasurementPeriod) >= 18
+  AgeInYearsAt(start of "MeasurementPeriod") >= 18
+
+define "Is Eligible Detail":
+  if "Inclusion Criteria"
+    then 'Will process ' + First(Patient.name).text +
+      ': Born ' + ToString(Patient.birthDate) +
+      ' (Age at start of measurement period: ' + ToString(AgeInYearsAt(start of "MeasurementPeriod")) +
+      '), Gender: ' + Patient.gender + ', ' +
+      ToString(Count("Blood Pressure Observations")) + ' BP observations'
+  else null
+
+define "Is Eligible Summary":
+  if "Inclusion Criteria"
+    then 'Patients is Eligible'
+  else null
+
+define "Is Eligible Indicator":
+  if "Inclusion Criteria"
+    then 'info'
+  else null
 
 define "Hypertension Detail":
   if "Inclusion Criteria" and "Has Hypertension"
@@ -31,7 +50,7 @@ define "Hypertension Detail":
 
 define "Hypertension Summary":
   if "Inclusion Criteria" and "Has Hypertension"
-    then 'Hypertension'
+    then 'Average systolic BP: ' + ToString("Test Average Systolic Blood Pressure")
   else null
 
 define "Hypertension Indicator":
@@ -40,12 +59,13 @@ define "Hypertension Indicator":
   else null
 
 define "Has Hypertension":
-  "Hypertension Blood Pressure" is not null
+  true
+//  "Hypertension Blood Pressure" is not null
 
 define "Hypertension Blood Pressure":
   "Average Blood Pressure" O
-    where O.systolic > 130
-    and O.diastolic > 90
+    where O.Systolic > 130
+    and O.Diastolic > 90
 
 define "Pre-Hypertension Detail":
   if "Inclusion Criteria" and "Is Pre-Hypertensive"
@@ -67,8 +87,8 @@ define "Is Pre-Hypertensive":
 
 define "Pre-Hypertensive Blood Pressure":
   "Average Blood Pressure" O
-    where O.systolic between 120 and 130
-    and O.diastolic between 80 and 90
+    where O.Systolic between 120 and 130
+    and O.Diastolic between 80 and 90
 
 define "Normal Detail":
   if "Inclusion Criteria" and "Is Normal"
@@ -90,16 +110,19 @@ define "Is Normal":
 
 define "Normal Blood Pressure":
   "Average Blood Pressure" O
-    where O.systolic < 120
-    and O.diastolic < 80
+    where O.Systolic < 120
+    and O.Diastolic < 80
 
 define "Average Blood Pressure":
-  Tuple { systolic: "Average Systolic Blood Pressure", diastolic: "Average Diastolic Blood Pressure" }
+  Tuple { Systolic: "Average Systolic Blood Pressure", Diastolic: "Average Diastolic Blood Pressure" }
 
 define "Blood Pressure Observations":
   [Observation: "Blood Pressure"] O
-    where "Normalize Interval"(O.effective) during MeasurementPeriod
+    where "Normalize Interval"(O.effective) during "MeasurementPeriod"
       and O.status in { 'final', 'amended' }
+
+define "Test Average Systolic Blood Pressure":
+  Avg({120, 130, 140})
 
 define "Average Systolic Blood Pressure":
   Avg("Blood Pressure Observations" O

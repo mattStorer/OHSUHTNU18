@@ -55,6 +55,8 @@ function planDefinitionChanged() {
             }
         });
     }
+
+    $('#cards').html('');
 }
 
 function executeSelectedPlanDefinition() {
@@ -89,9 +91,15 @@ function populateCards(cards) {
     cards.forEach(function(card) {
         html += "<div class='card " + card.indicator +
             "'>\n<span class='cardTitle'>" + card.summary +
-            "</span>\nSee: <a href='" + card.source.url +
-            "' target='_blank' rel='noopener noreferrer'>" + card.source.label +
-            "</a></div>\n";
+            "</span>\n<span class='cardDetail'>" + card.detail +
+            "</span>\n";
+
+        if (card.source.label !== undefined && card.source.url !== undefined) {
+            html += "See: <a href='" + card.source.url + "' target='_blank' rel='noopener noreferrer'>" +
+                card.source.label + "</a>\n";
+        }
+
+        html += "</div>\n";
     });
     $('#cards').html(html);
 }

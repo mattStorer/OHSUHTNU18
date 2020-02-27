@@ -1,4 +1,4 @@
-.hidden {
+.hidden, .hidden * {
     height: 0;
     width: 0;
     margin: 0;
@@ -76,9 +76,13 @@
     display: block;
 }
 
+#hooks {
+    height: 20;
+}
+
 #plans {
     display: inline-block;
-    margin-top: 5px;
+    margin: 5px;
 }
 
 div.plan {
@@ -94,11 +98,12 @@ span.planTitle {
 
 #cards {
     display: inline-block;
-    margin-top: 5px;
+    margin: 5px;
 }
 
 div.card {
-    border: 1px solid #33cc33;
+    display: block;
+    border: 3px solid #33cc33;
     background-color: #ccffcc;
     padding: 5px;
 }
@@ -108,10 +113,20 @@ div.card.warning {
     background-color: #ffcc99;
 }
 
+div.card.hard-stop {
+    border: 3px solid #ff0000;
+    background-color: #ffaaaa;
+}
+
 span.cardTitle {
     display: block;
     font-weight: bold;
     font-size: large;
+}
+
+span.cardDetail {
+    display: block;
+    font-style: italic;
 }
 
 #sliderContainer {

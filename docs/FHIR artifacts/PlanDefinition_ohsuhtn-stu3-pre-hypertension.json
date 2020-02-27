@@ -91,8 +91,55 @@
       ],
       "action": [
         {
+          "title": "Meets eligibility criteria",
+          "description": "Identifies a patient who meets eligibility criteria",
+          "documentation": [
+            {
+              "type": "documentation",
+              "display": "Meets eligibility criteria"
+            }
+          ],
+          "condition": [
+            {
+              "kind": "applicability",
+              "description": "Determine if the patient is eligible",
+              "language": "text/cql",
+              "expression": "Inclusion Criteria"
+            }
+          ],
+          "dynamicValue": [
+            {
+              "path": "action.description",
+              "expression": "Is Eligible Detail"
+            },
+            {
+              "path": "action.title",
+              "expression": "Is Eligible Summary"
+            },
+            {
+              "path": "action.extension",
+              "expression": "Is Eligible Indicator"
+            }
+          ],
+          "action": [
+            {
+              "description": "Do something"
+            },
+            {
+              "description": "Do something else, or nothing at all"
+            }
+          ]
+        },
+        {
           "title": "Determine if patient has hypertension",
           "description": "This action identifies a patient who has full-blown hypertension (systolic > 130 AND diastolic > 90), based on their average blood pressure over the measurement period.",
+          "documentation": [
+            {
+              "type": "documentation",
+              "display": "Info for those with hypertension",
+              "url": "https://en.wikipedia.org/wiki/Hypertension"
+            }
+          ],
           "condition": [
             {
               "kind": "applicability",
@@ -127,6 +174,13 @@
         {
           "title": "Determine if patient has pre-hypertension",
           "description": "This action identifies a patient who IS pre-hypertensive (systolic 120-130 AND diastolic 80-90), based on their average blood pressure over the measurement period.",
+          "documentation": [
+            {
+              "type": "documentation",
+              "display": "Info for those with pre-hypertension",
+              "url": "https://en.wikipedia.org/wiki/Prehypertension"
+            }
+          ],
           "condition": [
             {
               "kind": "applicability",
@@ -161,6 +215,13 @@
         {
           "title": "Determine if patient has normal blood pressure readings",
           "description": "This action indicates if a patient has normal blood pressure readings (systolic < 120 AND diastolic < 80), based on their average blood pressure over the measurement period.",
+          "documentation": [
+            {
+              "type": "documentation",
+              "display": "Info for those with normal blood pressure",
+              "url": "https://en.wikipedia.org/wiki/Blood_pressure"
+            }
+          ],
           "condition": [
             {
               "kind": "applicability",
