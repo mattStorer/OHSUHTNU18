@@ -1,10 +1,10 @@
-library OHSUHTN_STU3_Pre_Hypertension version '0.1.0'
+library OHSUHTN_STU3_PreHypertension version '0.1.0'
 
 using FHIR version '3.0.0'  /* STU3 */
 
 include FHIRHelpers version '3.0.0' called FHIRHelpers
 
-codesystem "LOINC": 'http:/loinc.org'
+codesystem "LOINC": 'http://loinc.org'
 
 valueset "Blood Pressure Measured": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.2012'
 
@@ -24,18 +24,23 @@ define "MeasurementPeriod":
 define "Inclusion Criteria":
   AgeInYearsAt(start of "MeasurementPeriod") >= 18
 
+/////////////////////////////////////////
+// ELIGIBILE ONLY
+
 define "Is Eligible Detail":
   if "Inclusion Criteria"
     then 'Will process ' + First(Patient.name).text +
       ': Born ' + ToString(Patient.birthDate) +
       ' (Age at start of measurement period: ' + ToString(AgeInYearsAt(start of "MeasurementPeriod")) +
       '), Gender: ' + Patient.gender + ', ' +
-      ToString(Count("Blood Pressure Observations")) + ' BP observations'
+      ToString(Count("Blood Pressure Observations")) + ' BP observations' +
+      '<br/>Avg Systolic: ' + ToString("Average Systolic Blood Pressure") +
+      '<br/>Avg Diastolic: ' + ToString("Average Diastolic Blood Pressure")
   else null
 
 define "Is Eligible Summary":
   if "Inclusion Criteria"
-    then 'Patients is Eligible'
+    then 'Meets Eligibility Criteria'
   else null
 
 define "Is Eligible Indicator":
@@ -43,61 +48,25 @@ define "Is Eligible Indicator":
     then 'info'
   else null
 
-define "Hypertension Detail":
-  if "Inclusion Criteria" and "Has Hypertension"
-    then 'Patients has hypertension based on average blood pressure'
-  else null
+/////////////////////////////////////////
+// NORMAL
 
-define "Hypertension Summary":
-  if "Inclusion Criteria" and "Has Hypertension"
-    then 'Average systolic BP: ' + ToString("Test Average Systolic Blood Pressure")
-  else null
+define "Is Normal":
+  "Normal Blood Pressure" is not null
 
-define "Hypertension Indicator":
-  if "Inclusion Criteria"
-    then 'warning'
-  else null
-
-define "Has Hypertension":
-  true
-//  "Hypertension Blood Pressure" is not null
-
-define "Hypertension Blood Pressure":
+define "Normal Blood Pressure":
   "Average Blood Pressure" O
-    where O.Systolic > 130
-    and O.Diastolic > 90
-
-define "Pre-Hypertension Detail":
-  if "Inclusion Criteria" and "Is Pre-Hypertensive"
-    then 'Patients has pre-hypertension based on average blood pressure'
-  else null
-
-define "Pre-Hypertension Summary":
-  if "Inclusion Criteria" and "Is Pre-Hypertensive"
-    then 'Pre-Hypertensive'
-  else null
-
-define "Pre-Hypertension Indicator":
-  if "Inclusion Criteria"
-    then 'warning'
-  else null
-
-define "Is Pre-Hypertensive":
-  "Pre-Hypertensive Blood Pressure" is not null
-
-define "Pre-Hypertensive Blood Pressure":
-  "Average Blood Pressure" O
-    where O.Systolic between 120 and 130
-    and O.Diastolic between 80 and 90
+    where O.systolic < 120
+    and O.diastolic < 80
 
 define "Normal Detail":
   if "Inclusion Criteria" and "Is Normal"
-    then 'Patients has normal blood pressure'
+    then 'Patient has normal blood pressure (' + "ABP" + ')'
   else null
 
 define "Normal Summary":
   if "Inclusion Criteria" and "Is Normal"
-    then 'Normal'
+    then 'Normal Blood Pressure'
   else null
 
 define "Normal Indicator":
@@ -105,24 +74,123 @@ define "Normal Indicator":
     then 'info'
   else null
 
-define "Is Normal":
-  "Normal Blood Pressure" is not null
+/////////////////////////////////////////
+// ELEVATED
 
-define "Normal Blood Pressure":
+define "Is Elevated":
+  "Elevated Blood Pressure" is not null
+
+define "Elevated Blood Pressure":
   "Average Blood Pressure" O
-    where O.Systolic < 120
-    and O.Diastolic < 80
+    where O.systolic >= 120 and O.systolic < 130
+    and O.diastolic < 80
+
+define "Elevated Detail":
+  if "Inclusion Criteria" and "Is Elevated"
+    then 'Patient has elevated blood pressure (' + "ABP" + ')'
+  else null
+
+define "Elevated Summary":
+  if "Inclusion Criteria" and "Is Elevated"
+    then 'Elevated Blood Pressure'
+  else null
+
+define "Elevated Indicator":
+  if "Inclusion Criteria"
+    then 'warning'
+  else null
+
+/////////////////////////////////////////
+// STAGE 1 HYPERTENSION
+
+define "Is Hypertension Stage 1":
+  "Hypertension Stage 1 Blood Pressure" is not null
+
+define "Hypertension Stage 1 Blood Pressure":
+  "Average Blood Pressure" O
+    where (O.systolic >= 130 and O.systolic < 140)
+    or (O.diastolic >= 80 and O.diastolic < 90)
+
+define "Hypertension Stage 1 Detail":
+  if "Inclusion Criteria" and "Is Hypertension Stage 1"
+    then 'Patient has stage 1 hypertension (' + "ABP" + ')'
+  else null
+
+define "Hypertension Stage 1 Summary":
+  if "Inclusion Criteria" and "Is Hypertension Stage 1"
+    then 'Hypertension, Stage 1'
+  else null
+
+define "Hypertension Stage 1 Indicator":
+  if "Inclusion Criteria"
+    then 'warning'
+  else null
+
+/////////////////////////////////////////
+// STAGE 2 HYPERTENSION
+
+define "Is Hypertension Stage 2":
+  "Hypertension Stage 2 Blood Pressure" is not null
+
+define "Hypertension Stage 2 Blood Pressure":
+  "Average Blood Pressure" O
+    where O.systolic >= 140
+    or O.diastolic >= 90
+
+define "Hypertension Stage 2 Detail":
+  if "Inclusion Criteria" and "Is Hypertension Stage 2"
+    then 'Patient has stage 2 hypertension (' + "ABP" + ')'
+  else null
+
+define "Hypertension Stage 2 Summary":
+  if "Inclusion Criteria" and "Is Hypertension Stage 2"
+    then 'Hypertension, Stage 2'
+  else null
+
+define "Hypertension Stage 2 Indicator":
+  if "Inclusion Criteria"
+    then 'warning'
+  else null
+
+/////////////////////////////////////////
+// HYPERTENSION CRISIS
+
+define "Is Hypertension Crisis":
+  "Hypertension Crisis Blood Pressure" is not null
+
+define "Hypertension Crisis Blood Pressure":
+  "Average Blood Pressure" O
+    where O.systolic > 180
+    or O.diastolic > 120
+
+define "Hypertension Crisis Detail":
+  if "Inclusion Criteria" and "Is Hypertension Crisis"
+    then 'Patient is in a hypertension crisis (' + "ABP" + ')'
+  else null
+
+define "Hypertension Crisis Summary":
+  if "Inclusion Criteria" and "Is Hypertension Crisis"
+    then 'Hypertension Crisis'
+  else null
+
+define "Hypertension Crisis Indicator":
+  if "Inclusion Criteria"
+    then 'warning'
+  else null
+
+///////////////////////////////////////////////////////////
+
+define "ABP":
+  "Average Blood Pressure" O
+    return ToString(Round(O.systolic.value)) + '/' + ToString(Round(O.diastolic.value)) + ' ' + O.systolic.unit
 
 define "Average Blood Pressure":
-  Tuple { Systolic: "Average Systolic Blood Pressure", Diastolic: "Average Diastolic Blood Pressure" }
+  Tuple { systolic: "Average Systolic Blood Pressure", diastolic: "Average Diastolic Blood Pressure" }
 
 define "Blood Pressure Observations":
-  [Observation: "Blood Pressure"] O
-    where "Normalize Interval"(O.effective) during "MeasurementPeriod"
+   [Observation: "Blood Pressure"] O
+   where "Normalize Interval"(O.effective) during "MeasurementPeriod"
       and O.status in { 'final', 'amended' }
-
-define "Test Average Systolic Blood Pressure":
-  Avg({120, 130, 140})
 
 define "Average Systolic Blood Pressure":
   Avg("Blood Pressure Observations" O

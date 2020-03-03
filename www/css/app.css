@@ -101,7 +101,7 @@ span.planTitle {
     margin: 5px;
 }
 
-div.card {
+div.card, div.card.info {
     display: block;
     border: 3px solid #33cc33;
     background-color: #ccffcc;

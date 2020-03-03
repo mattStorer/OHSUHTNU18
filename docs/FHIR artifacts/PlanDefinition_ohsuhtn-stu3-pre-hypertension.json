@@ -91,18 +91,19 @@
       ],
       "action": [
         {
-          "title": "Meets eligibility criteria",
-          "description": "Identifies a patient who meets eligibility criteria",
+          "title": "Patient is Eligible",
+          "description": "Runs anytime the patient meets basic eligibility criteria",
           "documentation": [
             {
               "type": "documentation",
-              "display": "Meets eligibility criteria"
+              "display": "Info for those who are eligible",
+              "url": "https://en.wikipedia.org/wiki/Blood_pressure"
             }
           ],
           "condition": [
             {
               "kind": "applicability",
-              "description": "Determine if the patient is eligible",
+              "description": "Normal ",
               "language": "text/cql",
               "expression": "Inclusion Criteria"
             }
@@ -131,90 +132,8 @@
           ]
         },
         {
-          "title": "Determine if patient has hypertension",
-          "description": "This action identifies a patient who has full-blown hypertension (systolic > 130 AND diastolic > 90), based on their average blood pressure over the measurement period.",
-          "documentation": [
-            {
-              "type": "documentation",
-              "display": "Info for those with hypertension",
-              "url": "https://en.wikipedia.org/wiki/Hypertension"
-            }
-          ],
-          "condition": [
-            {
-              "kind": "applicability",
-              "description": "Determine if the patient has hypertension",
-              "language": "text/cql",
-              "expression": "Has Hypertension"
-            }
-          ],
-          "dynamicValue": [
-            {
-              "path": "action.description",
-              "expression": "Hypertension Detail"
-            },
-            {
-              "path": "action.title",
-              "expression": "Hypertension Summary"
-            },
-            {
-              "path": "action.extension",
-              "expression": "Hypertension Indicator"
-            }
-          ],
-          "action": [
-            {
-              "description": "Do something"
-            },
-            {
-              "description": "Do something else, or nothing at all"
-            }
-          ]
-        },
-        {
-          "title": "Determine if patient has pre-hypertension",
-          "description": "This action identifies a patient who IS pre-hypertensive (systolic 120-130 AND diastolic 80-90), based on their average blood pressure over the measurement period.",
-          "documentation": [
-            {
-              "type": "documentation",
-              "display": "Info for those with pre-hypertension",
-              "url": "https://en.wikipedia.org/wiki/Prehypertension"
-            }
-          ],
-          "condition": [
-            {
-              "kind": "applicability",
-              "description": "Determine if the patient has pre-hypertension",
-              "language": "text/cql",
-              "expression": "Is Pre-Hypertensive"
-            }
-          ],
-          "dynamicValue": [
-            {
-              "path": "action.description",
-              "expression": "Pre-Hypertension Detail"
-            },
-            {
-              "path": "action.title",
-              "expression": "Pre-Hypertension Summary"
-            },
-            {
-              "path": "action.extension",
-              "expression": "Pre-Hypertension Indicator"
-            }
-          ],
-          "action": [
-            {
-              "description": "Do something"
-            },
-            {
-              "description": "Do something else, or nothing at all"
-            }
-          ]
-        },
-        {
-          "title": "Determine if patient has normal blood pressure readings",
-          "description": "This action indicates if a patient has normal blood pressure readings (systolic < 120 AND diastolic < 80), based on their average blood pressure over the measurement period.",
+          "title": "BP is normal",
+          "description": "Determines if the patient has normal BP (systolic < 120 AND diastolic < 80)",
           "documentation": [
             {
               "type": "documentation",
@@ -225,7 +144,7 @@
           "condition": [
             {
               "kind": "applicability",
-              "description": "Determine if the patient's blood pressure is normal",
+              "description": "Normal ",
               "language": "text/cql",
               "expression": "Is Normal"
             }
@@ -242,6 +161,170 @@
             {
               "path": "action.extension",
               "expression": "Normal Indicator"
+            }
+          ],
+          "action": [
+            {
+              "description": "Do something"
+            },
+            {
+              "description": "Do something else, or nothing at all"
+            }
+          ]
+        },
+        {
+          "title": "BP is elevated",
+          "description": "Determines if the patient has elevated BP (systolic 120-129 AND diastolic < 80)",
+          "documentation": [
+            {
+              "type": "documentation",
+              "display": "Info for those with elevated blood pressure",
+              "url": "https://en.wikipedia.org/wiki/Blood_pressure"
+            }
+          ],
+          "condition": [
+            {
+              "kind": "applicability",
+              "description": "Elevated",
+              "language": "text/cql",
+              "expression": "Is Elevated"
+            }
+          ],
+          "dynamicValue": [
+            {
+              "path": "action.description",
+              "expression": "Elevated Detail"
+            },
+            {
+              "path": "action.title",
+              "expression": "Elevated Summary"
+            },
+            {
+              "path": "action.extension",
+              "expression": "Elevated Indicator"
+            }
+          ],
+          "action": [
+            {
+              "description": "Do something"
+            },
+            {
+              "description": "Do something else, or nothing at all"
+            }
+          ]
+        },
+        {
+          "title": "Determine if patient has stage 1 hypertension",
+          "description": "This action identifies a patient who has stage 1 hypertension (systolic 130-139 OR diastolic 80-89).",
+          "documentation": [
+            {
+              "type": "documentation",
+              "display": "Info for those with stage 1 hypertension",
+              "url": "https://en.wikipedia.org/wiki/Prehypertension"
+            }
+          ],
+          "condition": [
+            {
+              "kind": "applicability",
+              "description": "Determine if the patient has stage 1 hypertension",
+              "language": "text/cql",
+              "expression": "Is Hypertension Stage 1"
+            }
+          ],
+          "dynamicValue": [
+            {
+              "path": "action.description",
+              "expression": "Hypertension Stage 1 Detail"
+            },
+            {
+              "path": "action.title",
+              "expression": "Hypertension Stage 1 Summary"
+            },
+            {
+              "path": "action.extension",
+              "expression": "Hypertension Stage 1 Indicator"
+            }
+          ],
+          "action": [
+            {
+              "description": "Do something"
+            },
+            {
+              "description": "Do something else, or nothing at all"
+            }
+          ]
+        },
+        {
+          "title": "Determine if patient has stage 2 hypertension",
+          "description": "This action identifies a patient who has stage 2 hypertension (systolic >= 140 OR diastolic >= 90).",
+          "documentation": [
+            {
+              "type": "documentation",
+              "display": "Info for those with stage 2 hypertension",
+              "url": "https://en.wikipedia.org/wiki/Prehypertension"
+            }
+          ],
+          "condition": [
+            {
+              "kind": "applicability",
+              "description": "Determine if the patient has stage 2 hypertension",
+              "language": "text/cql",
+              "expression": "Is Hypertension Stage 2"
+            }
+          ],
+          "dynamicValue": [
+            {
+              "path": "action.description",
+              "expression": "Hypertension Stage 2 Detail"
+            },
+            {
+              "path": "action.title",
+              "expression": "Hypertension Stage 2 Summary"
+            },
+            {
+              "path": "action.extension",
+              "expression": "Hypertension Stage 2 Indicator"
+            }
+          ],
+          "action": [
+            {
+              "description": "Do something"
+            },
+            {
+              "description": "Do something else, or nothing at all"
+            }
+          ]
+        },
+        {
+          "title": "Determine if patient is in a hypertension crisis",
+          "description": "This action identifies a patient who is in a full-blown hypertension crisis (systolic > 180 AND/OR diastolic > 120).",
+          "documentation": [
+            {
+              "type": "documentation",
+              "display": "Info for those with hypertension crisis",
+              "url": "https://en.wikipedia.org/wiki/Hypertension"
+            }
+          ],
+          "condition": [
+            {
+              "kind": "applicability",
+              "description": "Determine if the patient has hypertension crisis",
+              "language": "text/cql",
+              "expression": "Is Hypertension Crisis"
+            }
+          ],
+          "dynamicValue": [
+            {
+              "path": "action.description",
+              "expression": "Hypertension Crisis Detail"
+            },
+            {
+              "path": "action.title",
+              "expression": "Hypertension Crisis Summary"
+            },
+            {
+              "path": "action.extension",
+              "expression": "Hypertension Crisis Indicator"
             }
           ],
           "action": [

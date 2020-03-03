@@ -74,6 +74,11 @@ function executeSelectedPlanDefinition() {
     let dataStr = JSON.stringify(data, null, 2);
     console.log(dataStr);
 
+    let button = $('#executeHookButton');
+
+    $('body').css('cursor', 'wait');
+    $(button).attr('disabled', true);
+
     $.ajax({
         "url": CDS_SERVICES_URL + "/" + planId,
         "type": "POST",
@@ -81,6 +86,9 @@ function executeSelectedPlanDefinition() {
         "contentType": "application/json; charset=utf-8",
         "data": dataStr,
         "success": function (obj) {
+            $(button).removeAttr('disabled');
+            $('body').css('cursor', 'auto');
+
             populateCards(obj.cards);
         }
     });
