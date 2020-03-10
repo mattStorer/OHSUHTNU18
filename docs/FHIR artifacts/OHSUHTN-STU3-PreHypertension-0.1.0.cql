@@ -48,6 +48,8 @@ define "Is Eligible Indicator":
     then 'info'
   else null
 
+// see: https://www.heart.org/-/media/health-topics-images/hbp/blood-pressure-readings-chart-english.jpg
+
 /////////////////////////////////////////
 // NORMAL
 
