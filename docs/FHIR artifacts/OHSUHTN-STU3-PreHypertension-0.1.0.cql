@@ -19,7 +19,7 @@ context Patient
 
 // todo: remove this hard-coded MeasurementPeriod definition when the parameterized version is working
 define "MeasurementPeriod":
-  Interval[@2019-01-01T00:00:00.0, @2019-06-29T23:59:59.0]
+  Interval[@2019-01-01T00:00:00.0, @2019-06-30T23:59:59.0]
 
 define "Inclusion Criteria":
   AgeInYearsAt(start of "MeasurementPeriod") >= 18
@@ -35,7 +35,8 @@ define "Is Eligible Detail":
       '), Gender: ' + Patient.gender + ', ' +
       ToString(Count("Blood Pressure Observations")) + ' BP observations' +
       '<br/>Avg Systolic: ' + ToString("Average Systolic Blood Pressure") +
-      '<br/>Avg Diastolic: ' + ToString("Average Diastolic Blood Pressure")
+      '<br/>Avg Diastolic: ' + ToString("Average Diastolic Blood Pressure") +
+      '<br/>Systolic Variability: ' + "SV"
   else null
 
 define "Is Eligible Summary":
@@ -181,6 +182,15 @@ define "Hypertension Crisis Indicator":
   else null
 
 ///////////////////////////////////////////////////////////
+
+define "SV":
+  "Systolic Variability" S
+    return ToString(Round(S.value, 1)) + ' ' + S.unit
+
+define "Systolic Variability":
+  StdDev("Blood Pressure Observations" O
+    return all FHIRHelpers.ToQuantity(singleton from (O.component C where FHIRHelpers.ToConcept(C.code) ~ "Systolic Blood Pressure").value)
+  )
 
 define "ABP":
   "Average Blood Pressure" O
