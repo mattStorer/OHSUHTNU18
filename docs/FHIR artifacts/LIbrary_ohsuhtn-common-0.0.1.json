@@ -1,0 +1,67 @@
+{
+  "resourceType": "Library",
+  "id": "ohsuhtn-common",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2020-03-24T11:17:00.000-08:00"
+  },
+  "url": "https://github.com/mattStorer/OHSUHTNU18/blob/develop/docs/FHIR%20artifacts/Library_ohsuhtn-common-0.0.1.json",
+  "version": "0.0.1",
+  "name": "OHSUHTN_Common",
+  "title": "OHSU Common Hypertension Library",
+  "status": "active",
+  "experimental": false,
+  "type": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/library-type",
+        "code": "logic-library",
+        "display": "Logic Library"
+      }
+    ]
+  },
+  "date": "2020-03-24T00:00:00-08:00",
+  "publisher": "Oregon Health and Science University",
+  "description": "This library contains common OHSU Hypertension definitions and functions",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US",
+          "display": "United States of America"
+        }
+      ]
+    }
+  ],
+  "topic": [
+    {
+      "text": "Hypertension Management"
+    }
+  ],
+  "contributor": [
+    {
+      "type": "author",
+      "name": "Matthew Storer"
+    }
+  ],
+  "copyright": "© OHSU 2020+.",
+  "relatedArtifact": [
+    {
+      "type": "depends-on",
+      "resource": {
+        "reference": "Library/fhir-helpers"
+      }
+    },
+    {
+      "type": "depends-on",
+      "url": "http://hl7.org/fhir|3.0.0"
+    }
+  ],
+  "content": [
+    {
+      "contentType": "text/cql",
+      "data": "bGlicmFyeSBPSFNVSFROX0NvbW1vbiB2ZXJzaW9uICcwLjAuMScKCnVzaW5nIEZISVIgdmVyc2lvbiAnMy4wLjAnCgppbmNsdWRlIEZISVJIZWxwZXJzIHZlcnNpb24gJzMuMC4wJyBjYWxsZWQgRkhJUkhlbHBlcnMKCmNvZGVzeXN0ZW0gIkxPSU5DIjogJ2h0dHA6Ly9sb2luYy5vcmcnCgp2YWx1ZXNldCAiQmxvb2QgUHJlc3N1cmUgTWVhc3VyZWQiOiAnaHR0cDovL2N0cy5ubG0ubmloLmdvdi9maGlyL1ZhbHVlU2V0LzIuMTYuODQwLjEuMTEzODgzLjMuNjAwLjIwMTInCgpjb2RlICJCbG9vZCBQcmVzc3VyZSI6ICc1NTI4NC00JyBmcm9tICJMT0lOQyIgZGlzcGxheSAnYmxvb2QgcHJlc3N1cmUnCmNvZGUgIlN5c3RvbGljIEJsb29kIFByZXNzdXJlIjogJzg0ODAtNicgZnJvbSAiTE9JTkMiIGRpc3BsYXkgJ1N5c3RvbGljIGJsb29kIHByZXNzdXJlJwpjb2RlICJEaWFzdG9saWMgQmxvb2QgUHJlc3N1cmUiOiAnODQ2Mi00JyBmcm9tICJMT0lOQyIgZGlzcGxheSAnRGlhc3RvbGljIGJsb29kIHByZXNzdXJlJwoKY29udGV4dCBQYXRpZW50CgpkZWZpbmUgIk1lYXN1cmVtZW50IFBlcmlvZCI6CiAgSW50ZXJ2YWxbQDIwMTktMDEtMDFUMDA6MDA6MDAuMCwgQDIwMTktMDYtMzBUMjM6NTk6NTkuMF0KCmRlZmluZSAiTm9ybWFsIEJQIjoKICAiQXZnIEJQIiBPCiAgICB3aGVyZSBPLnN5c3RvbGljIDwgMTIwCiAgICBhbmQgTy5kaWFzdG9saWMgPCA4MAoKZGVmaW5lICJFbGV2YXRlZCBCUCI6CiAgIkF2ZyBCUCIgTwogICAgd2hlcmUgTy5zeXN0b2xpYyA+PSAxMjAgYW5kIE8uc3lzdG9saWMgPCAxMzAKICAgIGFuZCBPLmRpYXN0b2xpYyA8IDgwCgpkZWZpbmUgIkhUTiBTdGFnZSAxIEJQIjoKICAiQXZnIEJQIiBPCiAgICB3aGVyZSAoTy5zeXN0b2xpYyA+PSAxMzAgYW5kIE8uc3lzdG9saWMgPCAxNDApCiAgICBvciAoTy5kaWFzdG9saWMgPj0gODAgYW5kIE8uZGlhc3RvbGljIDwgOTApCgpkZWZpbmUgIkhUTiBTdGFnZSAyIEJQIjoKICAiQXZnIEJQIiBPCiAgICB3aGVyZSBPLnN5c3RvbGljID49IDE0MAogICAgb3IgTy5kaWFzdG9saWMgPj0gOTAKCmRlZmluZSAiSFROIENyaXNpcyBCUCI6CiAgIkF2ZyBCUCIgTwogICAgd2hlcmUgTy5zeXN0b2xpYyA+IDE4MAogICAgb3IgTy5kaWFzdG9saWMgPiAxMjAKCmRlZmluZSAiU3lzdG9saWMgQlAgVmFyaWFiaWxpdHkgU3RyaW5nIjoKICAiU3lzdG9saWMgQlAgVmFyaWFiaWxpdHkiIFMKICAgIHJldHVybiBUb1N0cmluZyhSb3VuZChTLnZhbHVlLCAxKSkgKyAnICcgKyBTLnVuaXQKCmRlZmluZSAiU3lzdG9saWMgQlAgVmFyaWFiaWxpdHkiOgogIFN0ZERldigiQmxvb2QgUHJlc3N1cmUgT2JzZXJ2YXRpb25zIiBPCiAgICByZXR1cm4gYWxsIEZISVJIZWxwZXJzLlRvUXVhbnRpdHkoc2luZ2xldG9uIGZyb20gKE8uY29tcG9uZW50IEMgd2hlcmUgRkhJUkhlbHBlcnMuVG9Db25jZXB0KEMuY29kZSkgfiAiU3lzdG9saWMgQmxvb2QgUHJlc3N1cmUiKS52YWx1ZSkKICApCgpkZWZpbmUgIkF2ZyBCUCBTdHJpbmciOgogICJBdmcgQlAiIE8KICAgIHJldHVybiBUb1N0cmluZyhSb3VuZChPLnN5c3RvbGljLnZhbHVlKSkgKyAnLycgKyBUb1N0cmluZyhSb3VuZChPLmRpYXN0b2xpYy52YWx1ZSkpICsgJyAnICsgTy5zeXN0b2xpYy51bml0CgpkZWZpbmUgIkF2ZyBCUCI6CiAgVHVwbGUgeyBzeXN0b2xpYzogIkF2ZyBTeXN0b2xpYyBCUCIsIGRpYXN0b2xpYzogIkF2ZyBEaWFzdG9saWMgQlAiIH0KCmRlZmluZSAiQXZnIFN5c3RvbGljIEJQIjoKICBBdmcoIkJsb29kIFByZXNzdXJlIE9ic2VydmF0aW9ucyIgTwogICAgcmV0dXJuIGFsbCBGSElSSGVscGVycy5Ub1F1YW50aXR5KHNpbmdsZXRvbiBmcm9tIChPLmNvbXBvbmVudCBDIHdoZXJlIEZISVJIZWxwZXJzLlRvQ29uY2VwdChDLmNvZGUpIH4gIlN5c3RvbGljIEJsb29kIFByZXNzdXJlIikudmFsdWUpCiAgKQoKZGVmaW5lICJBdmcgRGlhc3RvbGljIEJQIjoKICBBdmcoIkJsb29kIFByZXNzdXJlIE9ic2VydmF0aW9ucyIgTwogICAgcmV0dXJuIGFsbCBGSElSSGVscGVycy5Ub1F1YW50aXR5KHNpbmdsZXRvbiBmcm9tIChPLmNvbXBvbmVudCBDIHdoZXJlIEZISVJIZWxwZXJzLlRvQ29uY2VwdChDLmNvZGUpIH4gIkRpYXN0b2xpYyBCbG9vZCBQcmVzc3VyZSIpLnZhbHVlKQogICkKCmRlZmluZSAiQmxvb2QgUHJlc3N1cmUgT2JzZXJ2YXRpb25zIjoKICAgW09ic2VydmF0aW9uOiAiQmxvb2QgUHJlc3N1cmUiXSBPCiAgIHdoZXJlICJOb3JtYWxpemUgSW50ZXJ2YWwiKE8uZWZmZWN0aXZlKSBkdXJpbmcgIk1lYXN1cmVtZW50IFBlcmlvZCIKICAgICAgYW5kIE8uc3RhdHVzIGluIHsgJ2ZpbmFsJywgJ2FtZW5kZWQnIH0KCmRlZmluZSBmdW5jdGlvbiAiTm9ybWFsaXplIEludGVydmFsIihjaG9pY2UgQ2hvaWNlPEZISVIuZGF0ZVRpbWUsIEZISVIuUGVyaW9kLCBGSElSLlRpbWluZywgRkhJUi5pbnN0YW50LCBGSElSLnN0cmluZywgRkhJUi5BZ2UsIEZISVIuUmFuZ2U+KToKICBjYXNlCgkgIHdoZW4gY2hvaWNlIGlzIEZISVIuZGF0ZVRpbWUgdGhlbgogICAgCUludGVydmFsW0ZISVJIZWxwZXJzLlRvRGF0ZVRpbWUoY2hvaWNlIGFzIEZISVIuZGF0ZVRpbWUpLCBGSElSSGVscGVycy5Ub0RhdGVUaW1lKGNob2ljZSBhcyBGSElSLmRhdGVUaW1lKV0KCQl3aGVuIGNob2ljZSBpcyBGSElSLlBlcmlvZCB0aGVuCiAgCQlGSElSSGVscGVycy5Ub0ludGVydmFsKGNob2ljZSBhcyBGSElSLlBlcmlvZCkKCQl3aGVuIGNob2ljZSBpcyBGSElSLmluc3RhbnQgdGhlbgoJCQlJbnRlcnZhbFtGSElSSGVscGVycy5Ub0RhdGVUaW1lKGNob2ljZSBhcyBGSElSLmluc3RhbnQpLCBGSElSSGVscGVycy5Ub0RhdGVUaW1lKGNob2ljZSBhcyBGSElSLmluc3RhbnQpXQoJCXdoZW4gY2hvaWNlIGlzIEZISVIuQWdlIHRoZW4KCQkgIEludGVydmFsW0ZISVJIZWxwZXJzLlRvRGF0ZShQYXRpZW50LmJpcnRoRGF0ZSkgKyBGSElSSGVscGVycy5Ub1F1YW50aXR5KGNob2ljZSBhcyBGSElSLkFnZSksCgkJCSAgRkhJUkhlbHBlcnMuVG9EYXRlKFBhdGllbnQuYmlydGhEYXRlKSArIEZISVJIZWxwZXJzLlRvUXVhbnRpdHkoY2hvaWNlIGFzIEZISVIuQWdlKSArIDEgeWVhcikKCQl3aGVuIGNob2ljZSBpcyBGSElSLlJhbmdlIHRoZW4KCQkgIEludGVydmFsW0ZISVJIZWxwZXJzLlRvRGF0ZShQYXRpZW50LmJpcnRoRGF0ZSkgKyBGSElSSGVscGVycy5Ub1F1YW50aXR5KChjaG9pY2UgYXMgRkhJUi5SYW5nZSkubG93KSwKCQkJICBGSElSSGVscGVycy5Ub0RhdGUoUGF0aWVudC5iaXJ0aERhdGUpICsgRkhJUkhlbHBlcnMuVG9RdWFudGl0eSgoY2hvaWNlIGFzIEZISVIuUmFuZ2UpLmhpZ2gpICsgMSB5ZWFyKQoJCXdoZW4gY2hvaWNlIGlzIEZISVIuVGltaW5nIHRoZW4KCQkgIE1lc3NhZ2UobnVsbCBhcyBJbnRlcnZhbDxEYXRlVGltZT4sIHRydWUsICcxJywgJ0Vycm9yJywgJ0Nhbm5vdCBjb21wdXRlIGEgc2luZ2xlIGludGVydmFsIGZyb20gYSBUaW1pbmcgdHlwZScpCiAgICB3aGVuIGNob2ljZSBpcyBGSElSLnN0cmluZyB0aGVuCiAgICAgIE1lc3NhZ2UobnVsbCBhcyBJbnRlcnZhbDxEYXRlVGltZT4sIHRydWUsICcxJywgJ0Vycm9yJywgJ0Nhbm5vdCBjb21wdXRlIGFuIGludGVydmFsIGZyb20gYSBTdHJpbmcgdmFsdWUnKQoJCWVsc2UKCQkJbnVsbCBhcyBJbnRlcnZhbDxEYXRlVGltZT4KCWVuZAo="
+    }
+  ]
+}
