@@ -10,7 +10,7 @@ include OHSUHTN_Common version '0.0.1' called Common
 context Patient
 
 define "Inclusion Criteria":
-  AgeInYearsAt(start of Common."Measurement Period") >= 18
+  Common."Adult at start of Measurement Period"
 
 /////////////////////////////////////////
 // ELIGIBILE ONLY

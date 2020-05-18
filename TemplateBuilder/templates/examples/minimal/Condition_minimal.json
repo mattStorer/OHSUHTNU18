@@ -1,0 +1,22 @@
+
+
+{
+  "resourceType": "Condition",
+  "code": {
+    "coding": [
+      {
+        "system": "CONCODESYSTEM",
+        "code": "CONDITIONITIS",
+        "display": "Acute Conditionitis"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/SMART-9995679"
+  },
+  "onsetDateTime": "2020-03-25T12:00:00-08:00",
+  "context": {
+    "reference": "Encounter/SMART-Encounter-2"
+  }
+}
+

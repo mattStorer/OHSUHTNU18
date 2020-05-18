@@ -1,0 +1,54 @@
+{
+  "resourceType": "DiagnosticReport",
+  "id": "23704",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2020-03-25T23:04:52.000+00:00"
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\"> This is the diagnostic report text </div><table class=\"hapiPropertyTable\"><tbody><tr><td>Status</td><td>FINAL</td></tr><tr><td>Issued</td><td> 25 March 2020 20:00:00 </td></tr><tr><td>Conclusion</td><td>Conclusion</td></tr></tbody></table></div>"
+  },
+  "status": "final",
+  "category": {
+    "coding": [
+      {
+        "system": "CATCODESYS",
+        "code": "LAB",
+        "display": "Laboratory"
+      }
+    ],
+    "text": "This is the category text"
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "DIAGRPTCODESYS",
+        "code": "DIAGRPTCODE",
+        "display": "Diagnostic Report Code Display"
+      }
+    ],
+    "text": "This is the diagnostic report text"
+  },
+  "subject": {
+    "reference": "Patient/SMART-9995679"
+  },
+  "effectiveDateTime": "2020-03-25T12:00:00-08:00",
+  "issued": "2020-03-25T12:00:00-08:00",
+  "conclusion": "Conclusion",
+  "codedDiagnosis": [
+    {
+      "coding": [
+        {
+          "system": "LOINC",
+          "code": "12345-6",
+          "display": "Diagnosis Code Display"
+        }
+      ],
+      "text": "Diagnosis Text"
+    }
+  ],
+  "context": {
+    "reference": "Encounter/SMART-Encounter-3"
+  }
+}

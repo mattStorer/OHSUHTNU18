@@ -1,0 +1,56 @@
+{
+  "resourceType": "Condition",
+  "id": "23703",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2020-03-25T18:04:19.000+00:00"
+  },
+  "clinicalStatus": "active",
+  "verificationStatus": "confirmed",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "CATCODESYS",
+          "code": "encounter-diagnosis",
+          "display": "Encounter Diagnosis"
+        }
+      ],
+      "text": "A point in time diagnosis (e.g. from a physician or nurse) in context of an encounter."
+    }
+  ],
+  "severity": {
+    "coding": [
+      {
+        "system": "SEVCODESYS",
+        "code": "24484000",
+        "display": "Severe"
+      }
+    ],
+    "text": "This is the severity text"
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "CONCODESYSTEM",
+        "code": "CONDITIONITIS",
+        "display": "Acute Conditionitis"
+      }
+    ],
+    "text": "This is the condition text"
+  },
+  "subject": {
+    "reference": "Patient/SMART-9995679"
+  },
+  "onsetDateTime": "2020-03-25T12:00:00-08:00",
+  "note": [
+    {
+      "authorString": "The person who wrote the note",
+      "time": "2020-03-25T12:00:00-08:00",
+      "text": "This is the note text"
+    }
+  ],
+  "context": {
+    "reference": "Encounter/SMART-Encounter-2"
+  }
+}

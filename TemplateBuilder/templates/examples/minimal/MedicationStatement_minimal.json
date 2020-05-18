@@ -1,0 +1,19 @@
+
+{
+  "resourceType": "MedicationStatement",
+  "status": "active",
+  "medicationCodeableConcept": {
+    "coding": [
+      {
+        "system": "MEDCODESYSTEM",
+        "code": "MEDCODE234",
+        "display": "Medcodezole 234mg"
+      }
+    ]
+  },
+  "effectiveDateTime": "2020-03-25T12:00:00-08:00",
+  "subject": {
+    "reference": "Patient/SMART-9995679"
+  },
+  "taken": "y"
+}

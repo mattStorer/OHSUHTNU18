@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
 public class TemplateBuilder {
     private static final Pattern VARIABLE_PATTERN = Pattern.compile("\\$\\{([a-zA-Z][a-zA-Z0-9_]*)\\}");
 
-    private static final String PATIENT_QUERY = "select pat_study_id as patientId, given_name as givenName, family_name as familyName, gender, date_format(birth_date, \"%Y-%m-%d\") as dobShortFormat, date_format(birth_date, \"%e %M %Y\") as dobLongFormat, date(now()) as lastUpdatedDate, time(now()) as lastUpdatedTime from patient";
+    private static final String PATIENT_QUERY = "select pat_study_id as patientId, given_name as givenName, family_name as familyName, lower(sex) as gender, date_format(birth_date, \"%Y-%m-%d\") as dobShortFormat, date_format(birth_date, \"%e %M %Y\") as dobLongFormat, date(now()) as lastUpdatedDate, time(now()) as lastUpdatedTime from patient";
 
     private static final String ENCOUNTER_QUERY = "select pat_enc_csn_study_id as encounterId, pat_study_id as patientId, date(start_date) as encBeginDate, time(start_date) as encBeginTime, date(end_date) as encEndDate, time(end_date) as encEndTime, date(now()) as lastUpdatedDate, time(now()) as lastUpdatedTime from encounter where pat_study_id=?";
 

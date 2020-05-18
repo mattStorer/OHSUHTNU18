@@ -1,0 +1,122 @@
+{
+  "resourceType": "Observation",
+  "id": "SMART-Observation-11-bp",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2017-10-18T18:42:30.000+00:00"
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2009-12-23: Blood pressure 119/60 mmHg</div>"
+  },
+  "extension": [
+    {
+      "url": "http://fhir-registry.smarthealthit.org/StructureDefinition/vital-signs#position",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "40199007",
+            "display": "supine",
+            "userSelected": false
+          }
+        ],
+        "text": "supine"
+      }
+    }
+  ],
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/observation-category",
+          "code": "vital-signs",
+          "display": "Vital Signs",
+          "userSelected": false
+        }
+      ],
+      "text": "Vital Signs"
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "55284-4",
+        "display": "Blood pressure systolic and diastolic",
+        "userSelected": false
+      }
+    ],
+    "text": "Blood pressure systolic and diastolic"
+  },
+  "subject": {
+    "reference": "Patient/SMART-9995679"
+  },
+  "context": {
+    "reference": "Encounter/SMART-Encounter-9"
+  },
+  "effectiveDateTime": "2009-12-23T00:00:00-07:00",
+  "bodySite": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "368209003",
+        "display": "right arm",
+        "userSelected": false
+      }
+    ],
+    "text": "right arm"
+  },
+  "method": {
+    "coding": [
+      {
+        "system": "http://smarthealthit.org/terms/codes/BloodPressureMethod#",
+        "code": "machine",
+        "display": "machine",
+        "userSelected": false
+      }
+    ],
+    "text": "machine"
+  },
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "8480-6",
+            "display": "Systolic blood pressure",
+            "userSelected": false
+          }
+        ],
+        "text": "Systolic blood pressure"
+      },
+      "valueQuantity": {
+        "value": 119,
+        "unit": "mmHg",
+        "system": "http://unitsofmeasure.org",
+        "code": "mm[Hg]"
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "8462-4",
+            "display": "Diastolic blood pressure",
+            "userSelected": false
+          }
+        ],
+        "text": "Diastolic blood pressure"
+      },
+      "valueQuantity": {
+        "value": 60,
+        "unit": "mmHg",
+        "system": "http://unitsofmeasure.org",
+        "code": "mm[Hg]"
+      }
+    }
+  ]
+}

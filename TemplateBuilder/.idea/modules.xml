@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/JsonBuilder.iml" filepath="$PROJECT_DIR$/JsonBuilder.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TemplateBuilder.iml" filepath="$PROJECT_DIR$/TemplateBuilder.iml" />
     </modules>
   </component>
 </project>

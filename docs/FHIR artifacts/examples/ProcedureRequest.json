@@ -1,0 +1,37 @@
+{
+  "resourceType": "ProcedureRequest",
+  "id": "23705",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2020-03-25T23:14:12.000+00:00"
+  },
+  "status": "active",
+  "priority": "urgent",
+  "code": {
+    "coding": [
+      {
+        "system": "SNOMED",
+        "code": "4365001",
+        "display": "Surgical Repair"
+      }
+    ],
+    "text": "This is the procedure repair text"
+  },
+  "subject": {
+    "reference": "Patient/SMART-9995679"
+  },
+  "occurrenceDateTime": "2020-03-25T12:00:00-08:00",
+  "note": [
+    {
+      "authorString": "this is the note author",
+      "time": "2020-03-25T12:00:00-08:00",
+      "text": "these are the notes text"
+    }
+  ],
+  "performer": {
+    "reference": "Practitioner/SMART-1234"
+  },
+  "context": {
+    "reference": "Encounter/SMART-Encounter-7"
+  }
+}

@@ -1,0 +1,4189 @@
+{
+  "hookInstance": "test",
+  "fhirServer": "https://api.logicahealth.org/OHSUHTNU18/data",
+  "hook": "patient-view",
+  "applyCql": true,
+  "fhirAuthorization": {
+    "access_token": "a_long_string_of_seemingly_random_characters",
+    "token_type": "Bearer",
+    "expires_in": 300,
+    "scope": "patient/Patient.read patient/Observation.read",
+    "subject": "cds-service4"
+  },
+  "context": {
+    "userId": "Practitioner/SMART-1234",
+    "patientId": "Patient/0f6762c4eb8f14b4",
+    "code": "http://loinc.org|55284-4"
+  },
+  "prefetch": {
+    "item1": {
+      "response": {
+        "status": "200 OK"
+      },
+      "resource": {
+        "resourceType": "Patient",
+        "id": "0f6762c4eb8f14b4",
+        "meta": {
+          "versionId": "1",
+          "lastUpdated": "2020-01-02T22:15:28.000+00:00"
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">Sharon <b>Anderson </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Date of birth</td><td><span>28 September 1975</span></td></tr></tbody></table></div>"
+        },
+        "active": true,
+        "name": [
+          {
+            "text": "Sharon Anderson",
+            "family": "Anderson",
+            "given": [
+              "Sharon"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1975-09-28"
+      }
+    },
+    "item2": {
+      "response": {
+        "status": "200 OK"
+      },
+      "resource": {
+        "resourceType": "Bundle",
+        "id": "ohsu-htn-u18-observations-bundle",
+        "type": "collection",
+        "entry": [
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "OHSUHTNU18-5249",
+              "meta": {
+                "versionId": "1",
+                "lastUpdated": "2020-01-02T22:15:28.000+00:00"
+              },
+              "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2019-06-20: Blood pressure 144/84 mmHg</div>"
+              },
+              "status": "final",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/observation-category",
+                      "code": "vital-signs",
+                      "display": "Vital Signs",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Vital Signs"
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "55284-4",
+                    "display": "Blood pressure systolic and diastolic",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Blood pressure systolic and diastolic"
+              },
+              "subject": {
+                "reference": "Patient/0f6762c4eb8f14b4"
+              },
+              "context": {
+                "reference": "Encounter/d3a320af6a1dac5a"
+              },
+              "effectiveDateTime": "2019-06-20T12:03:00-07:00",
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8480-6",
+                        "display": "Systolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Systolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 144,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8462-4",
+                        "display": "Diastolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Diastolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 84,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "OHSUHTNU18-5246",
+              "meta": {
+                "versionId": "1",
+                "lastUpdated": "2020-01-02T22:15:28.000+00:00"
+              },
+              "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2019-06-19: Blood pressure 99/62 mmHg</div>"
+              },
+              "status": "final",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/observation-category",
+                      "code": "vital-signs",
+                      "display": "Vital Signs",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Vital Signs"
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "55284-4",
+                    "display": "Blood pressure systolic and diastolic",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Blood pressure systolic and diastolic"
+              },
+              "subject": {
+                "reference": "Patient/0f6762c4eb8f14b4"
+              },
+              "context": {
+                "reference": "Encounter/d3a320af6a1dac5a"
+              },
+              "effectiveDateTime": "2019-06-19T06:03:00-07:00",
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8480-6",
+                        "display": "Systolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Systolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 99,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8462-4",
+                        "display": "Diastolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Diastolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 62,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "OHSUHTNU18-5247",
+              "meta": {
+                "versionId": "1",
+                "lastUpdated": "2020-01-02T22:15:28.000+00:00"
+              },
+              "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2019-06-19: Blood pressure 106/48 mmHg</div>"
+              },
+              "status": "final",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/observation-category",
+                      "code": "vital-signs",
+                      "display": "Vital Signs",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Vital Signs"
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "55284-4",
+                    "display": "Blood pressure systolic and diastolic",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Blood pressure systolic and diastolic"
+              },
+              "subject": {
+                "reference": "Patient/0f6762c4eb8f14b4"
+              },
+              "context": {
+                "reference": "Encounter/d3a320af6a1dac5a"
+              },
+              "effectiveDateTime": "2019-06-19T08:15:00-07:00",
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8480-6",
+                        "display": "Systolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Systolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 106,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8462-4",
+                        "display": "Diastolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Diastolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 48,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "OHSUHTNU18-5248",
+              "meta": {
+                "versionId": "1",
+                "lastUpdated": "2020-01-02T22:15:28.000+00:00"
+              },
+              "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2019-06-19: Blood pressure 119/65 mmHg</div>"
+              },
+              "status": "final",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/observation-category",
+                      "code": "vital-signs",
+                      "display": "Vital Signs",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Vital Signs"
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "55284-4",
+                    "display": "Blood pressure systolic and diastolic",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Blood pressure systolic and diastolic"
+              },
+              "subject": {
+                "reference": "Patient/0f6762c4eb8f14b4"
+              },
+              "context": {
+                "reference": "Encounter/d3a320af6a1dac5a"
+              },
+              "effectiveDateTime": "2019-06-19T21:41:00-07:00",
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8480-6",
+                        "display": "Systolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Systolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 119,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8462-4",
+                        "display": "Diastolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Diastolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 65,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "OHSUHTNU18-5267",
+              "meta": {
+                "versionId": "1",
+                "lastUpdated": "2020-01-02T22:15:28.000+00:00"
+              },
+              "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2019-06-19: Blood pressure 106/48 mmHg</div>"
+              },
+              "status": "final",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/observation-category",
+                      "code": "vital-signs",
+                      "display": "Vital Signs",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Vital Signs"
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "55284-4",
+                    "display": "Blood pressure systolic and diastolic",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Blood pressure systolic and diastolic"
+              },
+              "subject": {
+                "reference": "Patient/0f6762c4eb8f14b4"
+              },
+              "context": {
+                "reference": "Encounter/d3a320af6a1dac5a"
+              },
+              "effectiveDateTime": "2019-06-19T08:15:00-07:00",
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8480-6",
+                        "display": "Systolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Systolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 106,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8462-4",
+                        "display": "Diastolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Diastolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 48,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "OHSUHTNU18-5268",
+              "meta": {
+                "versionId": "1",
+                "lastUpdated": "2020-01-02T22:15:28.000+00:00"
+              },
+              "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2019-06-19: Blood pressure 137/79 mmHg</div>"
+              },
+              "status": "final",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/observation-category",
+                      "code": "vital-signs",
+                      "display": "Vital Signs",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Vital Signs"
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "55284-4",
+                    "display": "Blood pressure systolic and diastolic",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Blood pressure systolic and diastolic"
+              },
+              "subject": {
+                "reference": "Patient/0f6762c4eb8f14b4"
+              },
+              "context": {
+                "reference": "Encounter/d3a320af6a1dac5a"
+              },
+              "effectiveDateTime": "2019-06-19T16:24:00-07:00",
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8480-6",
+                        "display": "Systolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Systolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 137,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8462-4",
+                        "display": "Diastolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Diastolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 79,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "OHSUHTNU18-5148",
+              "meta": {
+                "versionId": "1",
+                "lastUpdated": "2020-01-02T22:15:28.000+00:00"
+              },
+              "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2019-06-19: Blood pressure 110/64 mmHg</div>"
+              },
+              "status": "final",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/observation-category",
+                      "code": "vital-signs",
+                      "display": "Vital Signs",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Vital Signs"
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "55284-4",
+                    "display": "Blood pressure systolic and diastolic",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Blood pressure systolic and diastolic"
+              },
+              "subject": {
+                "reference": "Patient/0f6762c4eb8f14b4"
+              },
+              "context": {
+                "reference": "Encounter/d3a320af6a1dac5a"
+              },
+              "effectiveDateTime": "2019-06-19T12:00:00-07:00",
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8480-6",
+                        "display": "Systolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Systolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 110,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8462-4",
+                        "display": "Diastolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Diastolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 64,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "OHSUHTNU18-5269",
+              "meta": {
+                "versionId": "1",
+                "lastUpdated": "2020-01-02T22:15:28.000+00:00"
+              },
+              "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2019-06-20: Blood pressure 141/68 mmHg</div>"
+              },
+              "status": "final",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/observation-category",
+                      "code": "vital-signs",
+                      "display": "Vital Signs",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Vital Signs"
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "55284-4",
+                    "display": "Blood pressure systolic and diastolic",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Blood pressure systolic and diastolic"
+              },
+              "subject": {
+                "reference": "Patient/0f6762c4eb8f14b4"
+              },
+              "context": {
+                "reference": "Encounter/d3a320af6a1dac5a"
+              },
+              "effectiveDateTime": "2019-06-20T10:10:00-07:00",
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8480-6",
+                        "display": "Systolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Systolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 141,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8462-4",
+                        "display": "Diastolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Diastolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 68,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "OHSUHTNU18-5149",
+              "meta": {
+                "versionId": "1",
+                "lastUpdated": "2020-01-02T22:15:28.000+00:00"
+              },
+              "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2019-06-19: Blood pressure 137/79 mmHg</div>"
+              },
+              "status": "final",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/observation-category",
+                      "code": "vital-signs",
+                      "display": "Vital Signs",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Vital Signs"
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "55284-4",
+                    "display": "Blood pressure systolic and diastolic",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Blood pressure systolic and diastolic"
+              },
+              "subject": {
+                "reference": "Patient/0f6762c4eb8f14b4"
+              },
+              "context": {
+                "reference": "Encounter/d3a320af6a1dac5a"
+              },
+              "effectiveDateTime": "2019-06-19T16:24:00-07:00",
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8480-6",
+                        "display": "Systolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Systolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 137,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8462-4",
+                        "display": "Diastolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Diastolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 79,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "OHSUHTNU18-5265",
+              "meta": {
+                "versionId": "1",
+                "lastUpdated": "2020-01-02T22:15:28.000+00:00"
+              },
+              "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2019-06-18: Blood pressure 143/68 mmHg</div>"
+              },
+              "status": "final",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/observation-category",
+                      "code": "vital-signs",
+                      "display": "Vital Signs",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Vital Signs"
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "55284-4",
+                    "display": "Blood pressure systolic and diastolic",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Blood pressure systolic and diastolic"
+              },
+              "subject": {
+                "reference": "Patient/0f6762c4eb8f14b4"
+              },
+              "context": {
+                "reference": "Encounter/d3a320af6a1dac5a"
+              },
+              "effectiveDateTime": "2019-06-18T23:16:00-07:00",
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8480-6",
+                        "display": "Systolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Systolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 143,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8462-4",
+                        "display": "Diastolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Diastolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 68,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "OHSUHTNU18-5266",
+              "meta": {
+                "versionId": "1",
+                "lastUpdated": "2020-01-02T22:15:28.000+00:00"
+              },
+              "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2019-06-19: Blood pressure 116/64 mmHg</div>"
+              },
+              "status": "final",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/observation-category",
+                      "code": "vital-signs",
+                      "display": "Vital Signs",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Vital Signs"
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "55284-4",
+                    "display": "Blood pressure systolic and diastolic",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Blood pressure systolic and diastolic"
+              },
+              "subject": {
+                "reference": "Patient/0f6762c4eb8f14b4"
+              },
+              "context": {
+                "reference": "Encounter/d3a320af6a1dac5a"
+              },
+              "effectiveDateTime": "2019-06-19T01:00:00-07:00",
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8480-6",
+                        "display": "Systolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Systolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 116,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8462-4",
+                        "display": "Diastolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Diastolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 64,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "OHSUHTNU18-5170",
+              "meta": {
+                "versionId": "1",
+                "lastUpdated": "2020-01-02T22:15:28.000+00:00"
+              },
+              "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2019-06-19: Blood pressure 110/64 mmHg</div>"
+              },
+              "status": "final",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/observation-category",
+                      "code": "vital-signs",
+                      "display": "Vital Signs",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Vital Signs"
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "55284-4",
+                    "display": "Blood pressure systolic and diastolic",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Blood pressure systolic and diastolic"
+              },
+              "subject": {
+                "reference": "Patient/0f6762c4eb8f14b4"
+              },
+              "context": {
+                "reference": "Encounter/d3a320af6a1dac5a"
+              },
+              "effectiveDateTime": "2019-06-19T12:00:00-07:00",
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8480-6",
+                        "display": "Systolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Systolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 110,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8462-4",
+                        "display": "Diastolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Diastolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 64,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "OHSUHTNU18-5274",
+              "meta": {
+                "versionId": "1",
+                "lastUpdated": "2020-01-02T22:15:28.000+00:00"
+              },
+              "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2019-06-21: Blood pressure 116/62 mmHg</div>"
+              },
+              "status": "final",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/observation-category",
+                      "code": "vital-signs",
+                      "display": "Vital Signs",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Vital Signs"
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "55284-4",
+                    "display": "Blood pressure systolic and diastolic",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Blood pressure systolic and diastolic"
+              },
+              "subject": {
+                "reference": "Patient/0f6762c4eb8f14b4"
+              },
+              "context": {
+                "reference": "Encounter/d3a320af6a1dac5a"
+              },
+              "effectiveDateTime": "2019-06-21T06:16:00-07:00",
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8480-6",
+                        "display": "Systolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Systolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 116,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8462-4",
+                        "display": "Diastolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Diastolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 62,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "OHSUHTNU18-5270",
+              "meta": {
+                "versionId": "1",
+                "lastUpdated": "2020-01-02T22:15:28.000+00:00"
+              },
+              "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2019-06-20: Blood pressure 144/84 mmHg</div>"
+              },
+              "status": "final",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/observation-category",
+                      "code": "vital-signs",
+                      "display": "Vital Signs",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Vital Signs"
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "55284-4",
+                    "display": "Blood pressure systolic and diastolic",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Blood pressure systolic and diastolic"
+              },
+              "subject": {
+                "reference": "Patient/0f6762c4eb8f14b4"
+              },
+              "context": {
+                "reference": "Encounter/d3a320af6a1dac5a"
+              },
+              "effectiveDateTime": "2019-06-20T12:03:00-07:00",
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8480-6",
+                        "display": "Systolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Systolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 144,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8462-4",
+                        "display": "Diastolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Diastolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 84,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "OHSUHTNU18-5150",
+              "meta": {
+                "versionId": "1",
+                "lastUpdated": "2020-01-02T22:15:28.000+00:00"
+              },
+              "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2019-06-20: Blood pressure 130/60 mmHg</div>"
+              },
+              "status": "final",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/observation-category",
+                      "code": "vital-signs",
+                      "display": "Vital Signs",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Vital Signs"
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "55284-4",
+                    "display": "Blood pressure systolic and diastolic",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Blood pressure systolic and diastolic"
+              },
+              "subject": {
+                "reference": "Patient/0f6762c4eb8f14b4"
+              },
+              "context": {
+                "reference": "Encounter/d3a320af6a1dac5a"
+              },
+              "effectiveDateTime": "2019-06-20T06:52:00-07:00",
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8480-6",
+                        "display": "Systolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Systolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 130,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8462-4",
+                        "display": "Diastolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Diastolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 60,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "OHSUHTNU18-5271",
+              "meta": {
+                "versionId": "1",
+                "lastUpdated": "2020-01-02T22:15:28.000+00:00"
+              },
+              "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2019-06-20: Blood pressure 131/81 mmHg</div>"
+              },
+              "status": "final",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/observation-category",
+                      "code": "vital-signs",
+                      "display": "Vital Signs",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Vital Signs"
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "55284-4",
+                    "display": "Blood pressure systolic and diastolic",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Blood pressure systolic and diastolic"
+              },
+              "subject": {
+                "reference": "Patient/0f6762c4eb8f14b4"
+              },
+              "context": {
+                "reference": "Encounter/d3a320af6a1dac5a"
+              },
+              "effectiveDateTime": "2019-06-20T12:06:00-07:00",
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8480-6",
+                        "display": "Systolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Systolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 131,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8462-4",
+                        "display": "Diastolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Diastolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 81,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "OHSUHTNU18-5151",
+              "meta": {
+                "versionId": "1",
+                "lastUpdated": "2020-01-02T22:15:28.000+00:00"
+              },
+              "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2019-06-20: Blood pressure 131/81 mmHg</div>"
+              },
+              "status": "final",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/observation-category",
+                      "code": "vital-signs",
+                      "display": "Vital Signs",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Vital Signs"
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "55284-4",
+                    "display": "Blood pressure systolic and diastolic",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Blood pressure systolic and diastolic"
+              },
+              "subject": {
+                "reference": "Patient/0f6762c4eb8f14b4"
+              },
+              "context": {
+                "reference": "Encounter/d3a320af6a1dac5a"
+              },
+              "effectiveDateTime": "2019-06-20T12:06:00-07:00",
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8480-6",
+                        "display": "Systolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Systolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 131,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8462-4",
+                        "display": "Diastolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Diastolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 81,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "OHSUHTNU18-5272",
+              "meta": {
+                "versionId": "1",
+                "lastUpdated": "2020-01-02T22:15:28.000+00:00"
+              },
+              "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2019-06-20: Blood pressure 124/64 mmHg</div>"
+              },
+              "status": "final",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/observation-category",
+                      "code": "vital-signs",
+                      "display": "Vital Signs",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Vital Signs"
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "55284-4",
+                    "display": "Blood pressure systolic and diastolic",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Blood pressure systolic and diastolic"
+              },
+              "subject": {
+                "reference": "Patient/0f6762c4eb8f14b4"
+              },
+              "context": {
+                "reference": "Encounter/d3a320af6a1dac5a"
+              },
+              "effectiveDateTime": "2019-06-20T17:02:00-07:00",
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8480-6",
+                        "display": "Systolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Systolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 124,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8462-4",
+                        "display": "Diastolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Diastolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 64,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "OHSUHTNU18-5152",
+              "meta": {
+                "versionId": "1",
+                "lastUpdated": "2020-01-02T22:15:28.000+00:00"
+              },
+              "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2019-06-21: Blood pressure 140/67 mmHg</div>"
+              },
+              "status": "final",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/observation-category",
+                      "code": "vital-signs",
+                      "display": "Vital Signs",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Vital Signs"
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "55284-4",
+                    "display": "Blood pressure systolic and diastolic",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Blood pressure systolic and diastolic"
+              },
+              "subject": {
+                "reference": "Patient/0f6762c4eb8f14b4"
+              },
+              "context": {
+                "reference": "Encounter/d3a320af6a1dac5a"
+              },
+              "effectiveDateTime": "2019-06-21T10:05:00-07:00",
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8480-6",
+                        "display": "Systolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Systolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 140,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8462-4",
+                        "display": "Diastolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Diastolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 67,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "OHSUHTNU18-5273",
+              "meta": {
+                "versionId": "1",
+                "lastUpdated": "2020-01-02T22:15:28.000+00:00"
+              },
+              "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2019-06-20: Blood pressure 122/66 mmHg</div>"
+              },
+              "status": "final",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/observation-category",
+                      "code": "vital-signs",
+                      "display": "Vital Signs",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Vital Signs"
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "55284-4",
+                    "display": "Blood pressure systolic and diastolic",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Blood pressure systolic and diastolic"
+              },
+              "subject": {
+                "reference": "Patient/0f6762c4eb8f14b4"
+              },
+              "context": {
+                "reference": "Encounter/d3a320af6a1dac5a"
+              },
+              "effectiveDateTime": "2019-06-20T21:25:00-07:00",
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8480-6",
+                        "display": "Systolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Systolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 122,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8462-4",
+                        "display": "Diastolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Diastolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 66,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "OHSUHTNU18-5190",
+              "meta": {
+                "versionId": "1",
+                "lastUpdated": "2020-01-02T22:15:28.000+00:00"
+              },
+              "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2019-06-19: Blood pressure 119/65 mmHg</div>"
+              },
+              "status": "final",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/observation-category",
+                      "code": "vital-signs",
+                      "display": "Vital Signs",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Vital Signs"
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "55284-4",
+                    "display": "Blood pressure systolic and diastolic",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Blood pressure systolic and diastolic"
+              },
+              "subject": {
+                "reference": "Patient/0f6762c4eb8f14b4"
+              },
+              "context": {
+                "reference": "Encounter/d3a320af6a1dac5a"
+              },
+              "effectiveDateTime": "2019-06-19T21:41:00-07:00",
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8480-6",
+                        "display": "Systolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Systolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 119,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8462-4",
+                        "display": "Diastolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Diastolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 65,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "OHSUHTNU18-5191",
+              "meta": {
+                "versionId": "1",
+                "lastUpdated": "2020-01-02T22:15:28.000+00:00"
+              },
+              "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2019-06-21: Blood pressure 140/67 mmHg</div>"
+              },
+              "status": "final",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/observation-category",
+                      "code": "vital-signs",
+                      "display": "Vital Signs",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Vital Signs"
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "55284-4",
+                    "display": "Blood pressure systolic and diastolic",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Blood pressure systolic and diastolic"
+              },
+              "subject": {
+                "reference": "Patient/0f6762c4eb8f14b4"
+              },
+              "context": {
+                "reference": "Encounter/d3a320af6a1dac5a"
+              },
+              "effectiveDateTime": "2019-06-21T10:05:00-07:00",
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8480-6",
+                        "display": "Systolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Systolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 140,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8462-4",
+                        "display": "Diastolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Diastolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 67,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "OHSUHTNU18-5192",
+              "meta": {
+                "versionId": "1",
+                "lastUpdated": "2020-01-02T22:15:28.000+00:00"
+              },
+              "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2019-06-21: Blood pressure 108/56 mmHg</div>"
+              },
+              "status": "final",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/observation-category",
+                      "code": "vital-signs",
+                      "display": "Vital Signs",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Vital Signs"
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "55284-4",
+                    "display": "Blood pressure systolic and diastolic",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Blood pressure systolic and diastolic"
+              },
+              "subject": {
+                "reference": "Patient/0f6762c4eb8f14b4"
+              },
+              "context": {
+                "reference": "Encounter/d3a320af6a1dac5a"
+              },
+              "effectiveDateTime": "2019-06-21T15:04:00-07:00",
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8480-6",
+                        "display": "Systolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Systolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 108,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8462-4",
+                        "display": "Diastolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Diastolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 56,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "OHSUHTNU18-5189",
+              "meta": {
+                "versionId": "1",
+                "lastUpdated": "2020-01-02T22:15:28.000+00:00"
+              },
+              "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2019-06-19: Blood pressure 110/64 mmHg</div>"
+              },
+              "status": "final",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/observation-category",
+                      "code": "vital-signs",
+                      "display": "Vital Signs",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Vital Signs"
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "55284-4",
+                    "display": "Blood pressure systolic and diastolic",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Blood pressure systolic and diastolic"
+              },
+              "subject": {
+                "reference": "Patient/0f6762c4eb8f14b4"
+              },
+              "context": {
+                "reference": "Encounter/d3a320af6a1dac5a"
+              },
+              "effectiveDateTime": "2019-06-19T12:00:00-07:00",
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8480-6",
+                        "display": "Systolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Systolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 110,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8462-4",
+                        "display": "Diastolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Diastolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 64,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "OHSUHTNU18-5182",
+              "meta": {
+                "versionId": "1",
+                "lastUpdated": "2020-01-02T22:15:28.000+00:00"
+              },
+              "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2019-06-20: Blood pressure 122/66 mmHg</div>"
+              },
+              "status": "final",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/observation-category",
+                      "code": "vital-signs",
+                      "display": "Vital Signs",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Vital Signs"
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "55284-4",
+                    "display": "Blood pressure systolic and diastolic",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Blood pressure systolic and diastolic"
+              },
+              "subject": {
+                "reference": "Patient/0f6762c4eb8f14b4"
+              },
+              "context": {
+                "reference": "Encounter/d3a320af6a1dac5a"
+              },
+              "effectiveDateTime": "2019-06-20T21:25:00-07:00",
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8480-6",
+                        "display": "Systolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Systolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 122,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8462-4",
+                        "display": "Diastolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Diastolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 66,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "OHSUHTNU18-5180",
+              "meta": {
+                "versionId": "1",
+                "lastUpdated": "2020-01-02T22:15:28.000+00:00"
+              },
+              "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2019-06-20: Blood pressure 131/81 mmHg</div>"
+              },
+              "status": "final",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/observation-category",
+                      "code": "vital-signs",
+                      "display": "Vital Signs",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Vital Signs"
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "55284-4",
+                    "display": "Blood pressure systolic and diastolic",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Blood pressure systolic and diastolic"
+              },
+              "subject": {
+                "reference": "Patient/0f6762c4eb8f14b4"
+              },
+              "context": {
+                "reference": "Encounter/d3a320af6a1dac5a"
+              },
+              "effectiveDateTime": "2019-06-20T12:06:00-07:00",
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8480-6",
+                        "display": "Systolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Systolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 131,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8462-4",
+                        "display": "Diastolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Diastolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 81,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "OHSUHTNU18-5181",
+              "meta": {
+                "versionId": "1",
+                "lastUpdated": "2020-01-02T22:15:28.000+00:00"
+              },
+              "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2019-06-20: Blood pressure 124/64 mmHg</div>"
+              },
+              "status": "final",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/observation-category",
+                      "code": "vital-signs",
+                      "display": "Vital Signs",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Vital Signs"
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "55284-4",
+                    "display": "Blood pressure systolic and diastolic",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Blood pressure systolic and diastolic"
+              },
+              "subject": {
+                "reference": "Patient/0f6762c4eb8f14b4"
+              },
+              "context": {
+                "reference": "Encounter/d3a320af6a1dac5a"
+              },
+              "effectiveDateTime": "2019-06-20T17:02:00-07:00",
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8480-6",
+                        "display": "Systolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Systolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 124,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8462-4",
+                        "display": "Diastolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Diastolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 64,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "OHSUHTNU18-5179",
+              "meta": {
+                "versionId": "1",
+                "lastUpdated": "2020-01-02T22:15:28.000+00:00"
+              },
+              "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2019-06-20: Blood pressure 144/84 mmHg</div>"
+              },
+              "status": "final",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/observation-category",
+                      "code": "vital-signs",
+                      "display": "Vital Signs",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Vital Signs"
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "55284-4",
+                    "display": "Blood pressure systolic and diastolic",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Blood pressure systolic and diastolic"
+              },
+              "subject": {
+                "reference": "Patient/0f6762c4eb8f14b4"
+              },
+              "context": {
+                "reference": "Encounter/d3a320af6a1dac5a"
+              },
+              "effectiveDateTime": "2019-06-20T12:03:00-07:00",
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8480-6",
+                        "display": "Systolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Systolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 144,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8462-4",
+                        "display": "Diastolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Diastolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 84,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "OHSUHTNU18-5175",
+              "meta": {
+                "versionId": "1",
+                "lastUpdated": "2020-01-02T22:15:28.000+00:00"
+              },
+              "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2019-06-21: Blood pressure 116/62 mmHg</div>"
+              },
+              "status": "final",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/observation-category",
+                      "code": "vital-signs",
+                      "display": "Vital Signs",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Vital Signs"
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "55284-4",
+                    "display": "Blood pressure systolic and diastolic",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Blood pressure systolic and diastolic"
+              },
+              "subject": {
+                "reference": "Patient/0f6762c4eb8f14b4"
+              },
+              "context": {
+                "reference": "Encounter/d3a320af6a1dac5a"
+              },
+              "effectiveDateTime": "2019-06-21T06:16:00-07:00",
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8480-6",
+                        "display": "Systolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Systolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 116,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8462-4",
+                        "display": "Diastolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Diastolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 62,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "OHSUHTNU18-5176",
+              "meta": {
+                "versionId": "1",
+                "lastUpdated": "2020-01-02T22:15:28.000+00:00"
+              },
+              "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2019-06-21: Blood pressure 140/67 mmHg</div>"
+              },
+              "status": "final",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/observation-category",
+                      "code": "vital-signs",
+                      "display": "Vital Signs",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Vital Signs"
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "55284-4",
+                    "display": "Blood pressure systolic and diastolic",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Blood pressure systolic and diastolic"
+              },
+              "subject": {
+                "reference": "Patient/0f6762c4eb8f14b4"
+              },
+              "context": {
+                "reference": "Encounter/d3a320af6a1dac5a"
+              },
+              "effectiveDateTime": "2019-06-21T10:05:00-07:00",
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8480-6",
+                        "display": "Systolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Systolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 140,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8462-4",
+                        "display": "Diastolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Diastolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 67,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "OHSUHTNU18-5177",
+              "meta": {
+                "versionId": "1",
+                "lastUpdated": "2020-01-02T22:15:28.000+00:00"
+              },
+              "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2019-06-19: Blood pressure 119/65 mmHg</div>"
+              },
+              "status": "final",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/observation-category",
+                      "code": "vital-signs",
+                      "display": "Vital Signs",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Vital Signs"
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "55284-4",
+                    "display": "Blood pressure systolic and diastolic",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Blood pressure systolic and diastolic"
+              },
+              "subject": {
+                "reference": "Patient/0f6762c4eb8f14b4"
+              },
+              "context": {
+                "reference": "Encounter/d3a320af6a1dac5a"
+              },
+              "effectiveDateTime": "2019-06-19T21:41:00-07:00",
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8480-6",
+                        "display": "Systolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Systolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 119,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8462-4",
+                        "display": "Diastolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Diastolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 65,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "OHSUHTNU18-5178",
+              "meta": {
+                "versionId": "1",
+                "lastUpdated": "2020-01-02T22:15:28.000+00:00"
+              },
+              "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2019-06-20: Blood pressure 130/60 mmHg</div>"
+              },
+              "status": "final",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/observation-category",
+                      "code": "vital-signs",
+                      "display": "Vital Signs",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Vital Signs"
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "55284-4",
+                    "display": "Blood pressure systolic and diastolic",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Blood pressure systolic and diastolic"
+              },
+              "subject": {
+                "reference": "Patient/0f6762c4eb8f14b4"
+              },
+              "context": {
+                "reference": "Encounter/d3a320af6a1dac5a"
+              },
+              "effectiveDateTime": "2019-06-20T06:52:00-07:00",
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8480-6",
+                        "display": "Systolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Systolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 130,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8462-4",
+                        "display": "Diastolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Diastolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 60,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "OHSUHTNU18-5171",
+              "meta": {
+                "versionId": "1",
+                "lastUpdated": "2020-01-02T22:15:28.000+00:00"
+              },
+              "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2019-06-19: Blood pressure 137/79 mmHg</div>"
+              },
+              "status": "final",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/observation-category",
+                      "code": "vital-signs",
+                      "display": "Vital Signs",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Vital Signs"
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "55284-4",
+                    "display": "Blood pressure systolic and diastolic",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Blood pressure systolic and diastolic"
+              },
+              "subject": {
+                "reference": "Patient/0f6762c4eb8f14b4"
+              },
+              "context": {
+                "reference": "Encounter/d3a320af6a1dac5a"
+              },
+              "effectiveDateTime": "2019-06-19T16:24:00-07:00",
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8480-6",
+                        "display": "Systolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Systolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 137,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8462-4",
+                        "display": "Diastolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Diastolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 79,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "OHSUHTNU18-5172",
+              "meta": {
+                "versionId": "1",
+                "lastUpdated": "2020-01-02T22:15:28.000+00:00"
+              },
+              "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2019-06-20: Blood pressure 130/60 mmHg</div>"
+              },
+              "status": "final",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/observation-category",
+                      "code": "vital-signs",
+                      "display": "Vital Signs",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Vital Signs"
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "55284-4",
+                    "display": "Blood pressure systolic and diastolic",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Blood pressure systolic and diastolic"
+              },
+              "subject": {
+                "reference": "Patient/0f6762c4eb8f14b4"
+              },
+              "context": {
+                "reference": "Encounter/d3a320af6a1dac5a"
+              },
+              "effectiveDateTime": "2019-06-20T06:52:00-07:00",
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8480-6",
+                        "display": "Systolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Systolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 130,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8462-4",
+                        "display": "Diastolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Diastolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 60,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "OHSUHTNU18-5173",
+              "meta": {
+                "versionId": "1",
+                "lastUpdated": "2020-01-02T22:15:28.000+00:00"
+              },
+              "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2019-06-20: Blood pressure 141/68 mmHg</div>"
+              },
+              "status": "final",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/observation-category",
+                      "code": "vital-signs",
+                      "display": "Vital Signs",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Vital Signs"
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "55284-4",
+                    "display": "Blood pressure systolic and diastolic",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Blood pressure systolic and diastolic"
+              },
+              "subject": {
+                "reference": "Patient/0f6762c4eb8f14b4"
+              },
+              "context": {
+                "reference": "Encounter/d3a320af6a1dac5a"
+              },
+              "effectiveDateTime": "2019-06-20T10:10:00-07:00",
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8480-6",
+                        "display": "Systolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Systolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 141,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8462-4",
+                        "display": "Diastolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Diastolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 68,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "OHSUHTNU18-5174",
+              "meta": {
+                "versionId": "1",
+                "lastUpdated": "2020-01-02T22:15:28.000+00:00"
+              },
+              "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2019-06-20: Blood pressure 122/66 mmHg</div>"
+              },
+              "status": "final",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/observation-category",
+                      "code": "vital-signs",
+                      "display": "Vital Signs",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Vital Signs"
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "55284-4",
+                    "display": "Blood pressure systolic and diastolic",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Blood pressure systolic and diastolic"
+              },
+              "subject": {
+                "reference": "Patient/0f6762c4eb8f14b4"
+              },
+              "context": {
+                "reference": "Encounter/d3a320af6a1dac5a"
+              },
+              "effectiveDateTime": "2019-06-20T21:25:00-07:00",
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8480-6",
+                        "display": "Systolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Systolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 122,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8462-4",
+                        "display": "Diastolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Diastolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 66,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "OHSUHTNU18-5209",
+              "meta": {
+                "versionId": "1",
+                "lastUpdated": "2020-01-02T22:15:28.000+00:00"
+              },
+              "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2019-06-19: Blood pressure 99/62 mmHg</div>"
+              },
+              "status": "final",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/observation-category",
+                      "code": "vital-signs",
+                      "display": "Vital Signs",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Vital Signs"
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "55284-4",
+                    "display": "Blood pressure systolic and diastolic",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Blood pressure systolic and diastolic"
+              },
+              "subject": {
+                "reference": "Patient/0f6762c4eb8f14b4"
+              },
+              "context": {
+                "reference": "Encounter/d3a320af6a1dac5a"
+              },
+              "effectiveDateTime": "2019-06-19T06:03:00-07:00",
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8480-6",
+                        "display": "Systolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Systolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 99,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8462-4",
+                        "display": "Diastolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Diastolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 62,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "OHSUHTNU18-5207",
+              "meta": {
+                "versionId": "1",
+                "lastUpdated": "2020-01-02T22:15:28.000+00:00"
+              },
+              "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2019-06-18: Blood pressure 143/68 mmHg</div>"
+              },
+              "status": "final",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/observation-category",
+                      "code": "vital-signs",
+                      "display": "Vital Signs",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Vital Signs"
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "55284-4",
+                    "display": "Blood pressure systolic and diastolic",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Blood pressure systolic and diastolic"
+              },
+              "subject": {
+                "reference": "Patient/0f6762c4eb8f14b4"
+              },
+              "context": {
+                "reference": "Encounter/d3a320af6a1dac5a"
+              },
+              "effectiveDateTime": "2019-06-18T23:16:00-07:00",
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8480-6",
+                        "display": "Systolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Systolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 143,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8462-4",
+                        "display": "Diastolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Diastolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 68,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "OHSUHTNU18-5208",
+              "meta": {
+                "versionId": "1",
+                "lastUpdated": "2020-01-02T22:15:28.000+00:00"
+              },
+              "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2019-06-19: Blood pressure 116/64 mmHg</div>"
+              },
+              "status": "final",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/observation-category",
+                      "code": "vital-signs",
+                      "display": "Vital Signs",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Vital Signs"
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "55284-4",
+                    "display": "Blood pressure systolic and diastolic",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Blood pressure systolic and diastolic"
+              },
+              "subject": {
+                "reference": "Patient/0f6762c4eb8f14b4"
+              },
+              "context": {
+                "reference": "Encounter/d3a320af6a1dac5a"
+              },
+              "effectiveDateTime": "2019-06-19T01:00:00-07:00",
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8480-6",
+                        "display": "Systolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Systolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 116,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8462-4",
+                        "display": "Diastolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Diastolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 64,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "OHSUHTNU18-5223",
+              "meta": {
+                "versionId": "1",
+                "lastUpdated": "2020-01-02T22:15:28.000+00:00"
+              },
+              "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2019-06-19: Blood pressure 106/48 mmHg</div>"
+              },
+              "status": "final",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/observation-category",
+                      "code": "vital-signs",
+                      "display": "Vital Signs",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Vital Signs"
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "55284-4",
+                    "display": "Blood pressure systolic and diastolic",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Blood pressure systolic and diastolic"
+              },
+              "subject": {
+                "reference": "Patient/0f6762c4eb8f14b4"
+              },
+              "context": {
+                "reference": "Encounter/d3a320af6a1dac5a"
+              },
+              "effectiveDateTime": "2019-06-19T08:15:00-07:00",
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8480-6",
+                        "display": "Systolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Systolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 106,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8462-4",
+                        "display": "Diastolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Diastolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 48,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "OHSUHTNU18-5224",
+              "meta": {
+                "versionId": "1",
+                "lastUpdated": "2020-01-02T22:15:28.000+00:00"
+              },
+              "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2019-06-20: Blood pressure 124/64 mmHg</div>"
+              },
+              "status": "final",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/observation-category",
+                      "code": "vital-signs",
+                      "display": "Vital Signs",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Vital Signs"
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "55284-4",
+                    "display": "Blood pressure systolic and diastolic",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Blood pressure systolic and diastolic"
+              },
+              "subject": {
+                "reference": "Patient/0f6762c4eb8f14b4"
+              },
+              "context": {
+                "reference": "Encounter/d3a320af6a1dac5a"
+              },
+              "effectiveDateTime": "2019-06-20T17:02:00-07:00",
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8480-6",
+                        "display": "Systolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Systolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 124,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8462-4",
+                        "display": "Diastolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Diastolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 64,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "OHSUHTNU18-5225",
+              "meta": {
+                "versionId": "1",
+                "lastUpdated": "2020-01-02T22:15:28.000+00:00"
+              },
+              "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2019-06-21: Blood pressure 108/56 mmHg</div>"
+              },
+              "status": "final",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/observation-category",
+                      "code": "vital-signs",
+                      "display": "Vital Signs",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Vital Signs"
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "55284-4",
+                    "display": "Blood pressure systolic and diastolic",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Blood pressure systolic and diastolic"
+              },
+              "subject": {
+                "reference": "Patient/0f6762c4eb8f14b4"
+              },
+              "context": {
+                "reference": "Encounter/d3a320af6a1dac5a"
+              },
+              "effectiveDateTime": "2019-06-21T15:04:00-07:00",
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8480-6",
+                        "display": "Systolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Systolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 108,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8462-4",
+                        "display": "Diastolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Diastolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 56,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "OHSUHTNU18-5220",
+              "meta": {
+                "versionId": "1",
+                "lastUpdated": "2020-01-02T22:15:28.000+00:00"
+              },
+              "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2019-06-18: Blood pressure 143/68 mmHg</div>"
+              },
+              "status": "final",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/observation-category",
+                      "code": "vital-signs",
+                      "display": "Vital Signs",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Vital Signs"
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "55284-4",
+                    "display": "Blood pressure systolic and diastolic",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Blood pressure systolic and diastolic"
+              },
+              "subject": {
+                "reference": "Patient/0f6762c4eb8f14b4"
+              },
+              "context": {
+                "reference": "Encounter/d3a320af6a1dac5a"
+              },
+              "effectiveDateTime": "2019-06-18T23:16:00-07:00",
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8480-6",
+                        "display": "Systolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Systolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 143,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8462-4",
+                        "display": "Diastolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Diastolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 68,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "OHSUHTNU18-5221",
+              "meta": {
+                "versionId": "1",
+                "lastUpdated": "2020-01-02T22:15:28.000+00:00"
+              },
+              "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2019-06-19: Blood pressure 116/64 mmHg</div>"
+              },
+              "status": "final",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/observation-category",
+                      "code": "vital-signs",
+                      "display": "Vital Signs",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Vital Signs"
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "55284-4",
+                    "display": "Blood pressure systolic and diastolic",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Blood pressure systolic and diastolic"
+              },
+              "subject": {
+                "reference": "Patient/0f6762c4eb8f14b4"
+              },
+              "context": {
+                "reference": "Encounter/d3a320af6a1dac5a"
+              },
+              "effectiveDateTime": "2019-06-19T01:00:00-07:00",
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8480-6",
+                        "display": "Systolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Systolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 116,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8462-4",
+                        "display": "Diastolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Diastolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 64,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "OHSUHTNU18-5222",
+              "meta": {
+                "versionId": "1",
+                "lastUpdated": "2020-01-02T22:15:28.000+00:00"
+              },
+              "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2019-06-19: Blood pressure 99/62 mmHg</div>"
+              },
+              "status": "final",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/observation-category",
+                      "code": "vital-signs",
+                      "display": "Vital Signs",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Vital Signs"
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "55284-4",
+                    "display": "Blood pressure systolic and diastolic",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Blood pressure systolic and diastolic"
+              },
+              "subject": {
+                "reference": "Patient/0f6762c4eb8f14b4"
+              },
+              "context": {
+                "reference": "Encounter/d3a320af6a1dac5a"
+              },
+              "effectiveDateTime": "2019-06-19T06:03:00-07:00",
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8480-6",
+                        "display": "Systolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Systolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 99,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8462-4",
+                        "display": "Diastolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Diastolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 62,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "OHSUHTNU18-5212",
+              "meta": {
+                "versionId": "1",
+                "lastUpdated": "2020-01-02T22:15:28.000+00:00"
+              },
+              "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2019-06-21: Blood pressure 108/56 mmHg</div>"
+              },
+              "status": "final",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/observation-category",
+                      "code": "vital-signs",
+                      "display": "Vital Signs",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Vital Signs"
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "55284-4",
+                    "display": "Blood pressure systolic and diastolic",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Blood pressure systolic and diastolic"
+              },
+              "subject": {
+                "reference": "Patient/0f6762c4eb8f14b4"
+              },
+              "context": {
+                "reference": "Encounter/d3a320af6a1dac5a"
+              },
+              "effectiveDateTime": "2019-06-21T15:04:00-07:00",
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8480-6",
+                        "display": "Systolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Systolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 108,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8462-4",
+                        "display": "Diastolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Diastolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 56,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "OHSUHTNU18-5210",
+              "meta": {
+                "versionId": "1",
+                "lastUpdated": "2020-01-02T22:15:28.000+00:00"
+              },
+              "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2019-06-20: Blood pressure 141/68 mmHg</div>"
+              },
+              "status": "final",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/observation-category",
+                      "code": "vital-signs",
+                      "display": "Vital Signs",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Vital Signs"
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "55284-4",
+                    "display": "Blood pressure systolic and diastolic",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Blood pressure systolic and diastolic"
+              },
+              "subject": {
+                "reference": "Patient/0f6762c4eb8f14b4"
+              },
+              "context": {
+                "reference": "Encounter/d3a320af6a1dac5a"
+              },
+              "effectiveDateTime": "2019-06-20T10:10:00-07:00",
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8480-6",
+                        "display": "Systolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Systolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 141,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8462-4",
+                        "display": "Diastolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Diastolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 68,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "OHSUHTNU18-5211",
+              "meta": {
+                "versionId": "1",
+                "lastUpdated": "2020-01-02T22:15:28.000+00:00"
+              },
+              "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">2019-06-21: Blood pressure 116/62 mmHg</div>"
+              },
+              "status": "final",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/observation-category",
+                      "code": "vital-signs",
+                      "display": "Vital Signs",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Vital Signs"
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "55284-4",
+                    "display": "Blood pressure systolic and diastolic",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Blood pressure systolic and diastolic"
+              },
+              "subject": {
+                "reference": "Patient/0f6762c4eb8f14b4"
+              },
+              "context": {
+                "reference": "Encounter/d3a320af6a1dac5a"
+              },
+              "effectiveDateTime": "2019-06-21T06:16:00-07:00",
+              "component": [
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8480-6",
+                        "display": "Systolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Systolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 116,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://loinc.org",
+                        "code": "8462-4",
+                        "display": "Diastolic blood pressure",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Diastolic blood pressure"
+                  },
+                  "valueQuantity": {
+                    "value": 62,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}

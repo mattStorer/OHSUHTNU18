@@ -6,11 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="TemplateBuilder" />
         <module name="JsonBuilder" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="JsonBuilder" target="1.8" />
+      <module name="TemplateBuilder" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -1,0 +1,21 @@
+{
+  "resourceType": "DiagnosticReport",
+  "status": "final",
+  "code": {
+    "coding": [
+      {
+        "system": "DIAGRPTCODESYS",
+        "code": "DIAGRPTCODE",
+        "display": "Diagnostic Report Code Display"
+      }
+    ],
+    "text": "This is the diagnostic report text"
+  },
+  "subject": {
+    "reference": "Patient/SMART-9995679"
+  },
+  "effectiveDateTime": "2020-03-25T12:00:00-08:00",
+  "context": {
+    "reference": "Encounter/SMART-Encounter-3"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "resourceType": "ProcedureRequest",
+  "status": "active",
+  "code": {
+    "coding": [
+      {
+        "system": "SNOMED",
+        "code": "4365001",
+        "display": "Surgical Repair"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/SMART-9995679"
+  },
+  "occurrenceDateTime": "2020-03-25T12:00:00-08:00",
+  "context": {
+    "reference": "Encounter/SMART-Encounter-7"
+  }
+}
+

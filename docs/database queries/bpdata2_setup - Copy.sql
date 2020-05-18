@@ -1,0 +1,370 @@
+create database if not exists bpdata2;
+
+use bpdata2;
+
+-- now create some lookup tables that will be used to populate the dummy data in the patient table
+drop table if exists givenNames;
+create table givenNames(
+  id int not null auto_increment primary key,
+  sex varchar(6) not null,
+  name varchar(20) not null
+);
+
+insert into givenNames(sex, name) values('male','James');
+insert into givenNames(sex, name) values('male','John');
+insert into givenNames(sex, name) values('male','Robert');
+insert into givenNames(sex, name) values('male','Michael');
+insert into givenNames(sex, name) values('male','William');
+insert into givenNames(sex, name) values('male','David');
+insert into givenNames(sex, name) values('male','Richard');
+insert into givenNames(sex, name) values('male','Joseph');
+insert into givenNames(sex, name) values('male','Thomas');
+insert into givenNames(sex, name) values('male','Charles');
+insert into givenNames(sex, name) values('male','Christopher');
+insert into givenNames(sex, name) values('male','Daniel');
+insert into givenNames(sex, name) values('male','Matthew');
+insert into givenNames(sex, name) values('male','Anthony');
+insert into givenNames(sex, name) values('male','Donald');
+insert into givenNames(sex, name) values('male','Mark');
+insert into givenNames(sex, name) values('male','Paul');
+insert into givenNames(sex, name) values('male','Steven');
+insert into givenNames(sex, name) values('male','Andrew');
+insert into givenNames(sex, name) values('male','Kenneth');
+insert into givenNames(sex, name) values('male','Joshua');
+insert into givenNames(sex, name) values('male','George');
+insert into givenNames(sex, name) values('male','Kevin');
+insert into givenNames(sex, name) values('male','Brian');
+insert into givenNames(sex, name) values('male','Edward');
+insert into givenNames(sex, name) values('male','Ronald');
+insert into givenNames(sex, name) values('male','Timothy');
+insert into givenNames(sex, name) values('male','Jason');
+insert into givenNames(sex, name) values('male','Jeffrey');
+insert into givenNames(sex, name) values('male','Ryan');
+insert into givenNames(sex, name) values('male','Jacob');
+insert into givenNames(sex, name) values('male','Gary');
+insert into givenNames(sex, name) values('male','Nicholas');
+insert into givenNames(sex, name) values('male','Eric');
+insert into givenNames(sex, name) values('male','Stephen');
+insert into givenNames(sex, name) values('male','Jonathan');
+insert into givenNames(sex, name) values('male','Larry');
+insert into givenNames(sex, name) values('male','Justin');
+insert into givenNames(sex, name) values('male','Scott');
+insert into givenNames(sex, name) values('male','Brandon');
+insert into givenNames(sex, name) values('male','Frank');
+insert into givenNames(sex, name) values('male','Benjamin');
+insert into givenNames(sex, name) values('male','Gregory');
+insert into givenNames(sex, name) values('male','Samuel');
+insert into givenNames(sex, name) values('male','Raymond');
+insert into givenNames(sex, name) values('male','Patrick');
+insert into givenNames(sex, name) values('male','Alexander');
+insert into givenNames(sex, name) values('male','Jack');
+insert into givenNames(sex, name) values('male','Dennis');
+insert into givenNames(sex, name) values('male','Jerry');
+insert into givenNames(sex, name) values('male','Tyler');
+insert into givenNames(sex, name) values('male','Aaron');
+insert into givenNames(sex, name) values('male','Jose');
+insert into givenNames(sex, name) values('male','Henry');
+insert into givenNames(sex, name) values('male','Douglas');
+insert into givenNames(sex, name) values('male','Adam');
+insert into givenNames(sex, name) values('male','Peter');
+insert into givenNames(sex, name) values('male','Nathan');
+insert into givenNames(sex, name) values('male','Zachary');
+insert into givenNames(sex, name) values('male','Walter');
+insert into givenNames(sex, name) values('male','Kyle');
+insert into givenNames(sex, name) values('male','Harold');
+insert into givenNames(sex, name) values('male','Carl');
+insert into givenNames(sex, name) values('male','Jeremy');
+insert into givenNames(sex, name) values('male','Keith');
+insert into givenNames(sex, name) values('male','Roger');
+insert into givenNames(sex, name) values('male','Gerald');
+insert into givenNames(sex, name) values('male','Ethan');
+insert into givenNames(sex, name) values('male','Arthur');
+insert into givenNames(sex, name) values('male','Terry');
+insert into givenNames(sex, name) values('male','Christian');
+insert into givenNames(sex, name) values('male','Sean');
+insert into givenNames(sex, name) values('male','Lawrence');
+insert into givenNames(sex, name) values('male','Austin');
+insert into givenNames(sex, name) values('male','Joe');
+insert into givenNames(sex, name) values('male','Noah');
+insert into givenNames(sex, name) values('male','Jesse');
+insert into givenNames(sex, name) values('male','Albert');
+insert into givenNames(sex, name) values('male','Bryan');
+insert into givenNames(sex, name) values('male','Billy');
+insert into givenNames(sex, name) values('male','Bruce');
+insert into givenNames(sex, name) values('male','Willie');
+insert into givenNames(sex, name) values('male','Jordan');
+insert into givenNames(sex, name) values('male','Dylan');
+insert into givenNames(sex, name) values('male','Alan');
+insert into givenNames(sex, name) values('male','Ralph');
+insert into givenNames(sex, name) values('male','Gabriel');
+insert into givenNames(sex, name) values('male','Roy');
+insert into givenNames(sex, name) values('male','Juan');
+insert into givenNames(sex, name) values('male','Wayne');
+insert into givenNames(sex, name) values('male','Eugene');
+insert into givenNames(sex, name) values('male','Logan');
+insert into givenNames(sex, name) values('male','Randy');
+insert into givenNames(sex, name) values('male','Louis');
+insert into givenNames(sex, name) values('male','Russell');
+insert into givenNames(sex, name) values('male','Vincent');
+insert into givenNames(sex, name) values('male','Philip');
+insert into givenNames(sex, name) values('male','Bobby');
+insert into givenNames(sex, name) values('male','Johnny');
+insert into givenNames(sex, name) values('male','Bradley');
+insert into givenNames(sex, name) values('female','Mary');
+insert into givenNames(sex, name) values('female','Patricia');
+insert into givenNames(sex, name) values('female','Jennifer');
+insert into givenNames(sex, name) values('female','Linda');
+insert into givenNames(sex, name) values('female','Elizabeth');
+insert into givenNames(sex, name) values('female','Barbara');
+insert into givenNames(sex, name) values('female','Susan');
+insert into givenNames(sex, name) values('female','Jessica');
+insert into givenNames(sex, name) values('female','Sarah');
+insert into givenNames(sex, name) values('female','Karen');
+insert into givenNames(sex, name) values('female','Nancy');
+insert into givenNames(sex, name) values('female','Margaret');
+insert into givenNames(sex, name) values('female','Lisa');
+insert into givenNames(sex, name) values('female','Betty');
+insert into givenNames(sex, name) values('female','Dorothy');
+insert into givenNames(sex, name) values('female','Sandra');
+insert into givenNames(sex, name) values('female','Ashley');
+insert into givenNames(sex, name) values('female','Kimberly');
+insert into givenNames(sex, name) values('female','Donna');
+insert into givenNames(sex, name) values('female','Emily');
+insert into givenNames(sex, name) values('female','Michelle');
+insert into givenNames(sex, name) values('female','Carol');
+insert into givenNames(sex, name) values('female','Amanda');
+insert into givenNames(sex, name) values('female','Melissa');
+insert into givenNames(sex, name) values('female','Deborah');
+insert into givenNames(sex, name) values('female','Stephanie');
+insert into givenNames(sex, name) values('female','Rebecca');
+insert into givenNames(sex, name) values('female','Laura');
+insert into givenNames(sex, name) values('female','Sharon');
+insert into givenNames(sex, name) values('female','Cynthia');
+insert into givenNames(sex, name) values('female','Kathleen');
+insert into givenNames(sex, name) values('female','Helen');
+insert into givenNames(sex, name) values('female','Amy');
+insert into givenNames(sex, name) values('female','Shirley');
+insert into givenNames(sex, name) values('female','Angela');
+insert into givenNames(sex, name) values('female','Anna');
+insert into givenNames(sex, name) values('female','Brenda');
+insert into givenNames(sex, name) values('female','Pamela');
+insert into givenNames(sex, name) values('female','Nicole');
+insert into givenNames(sex, name) values('female','Ruth');
+insert into givenNames(sex, name) values('female','Katherine');
+insert into givenNames(sex, name) values('female','Samantha');
+insert into givenNames(sex, name) values('female','Christine');
+insert into givenNames(sex, name) values('female','Emma');
+insert into givenNames(sex, name) values('female','Catherine');
+insert into givenNames(sex, name) values('female','Debra');
+insert into givenNames(sex, name) values('female','Virginia');
+insert into givenNames(sex, name) values('female','Rachel');
+insert into givenNames(sex, name) values('female','Carolyn');
+insert into givenNames(sex, name) values('female','Janet');
+insert into givenNames(sex, name) values('female','Maria');
+insert into givenNames(sex, name) values('female','Heather');
+insert into givenNames(sex, name) values('female','Diane');
+insert into givenNames(sex, name) values('female','Julie');
+insert into givenNames(sex, name) values('female','Joyce');
+insert into givenNames(sex, name) values('female','Victoria');
+insert into givenNames(sex, name) values('female','Kelly');
+insert into givenNames(sex, name) values('female','Christina');
+insert into givenNames(sex, name) values('female','Joan');
+insert into givenNames(sex, name) values('female','Evelyn');
+insert into givenNames(sex, name) values('female','Lauren');
+insert into givenNames(sex, name) values('female','Judith');
+insert into givenNames(sex, name) values('female','Olivia');
+insert into givenNames(sex, name) values('female','Frances');
+insert into givenNames(sex, name) values('female','Martha');
+insert into givenNames(sex, name) values('female','Cheryl');
+insert into givenNames(sex, name) values('female','Megan');
+insert into givenNames(sex, name) values('female','Andrea');
+insert into givenNames(sex, name) values('female','Hannah');
+insert into givenNames(sex, name) values('female','Jacqueline');
+insert into givenNames(sex, name) values('female','Ann');
+insert into givenNames(sex, name) values('female','Jean');
+insert into givenNames(sex, name) values('female','Alice');
+insert into givenNames(sex, name) values('female','Kathryn');
+insert into givenNames(sex, name) values('female','Gloria');
+insert into givenNames(sex, name) values('female','Teresa');
+insert into givenNames(sex, name) values('female','Doris');
+insert into givenNames(sex, name) values('female','Sara');
+insert into givenNames(sex, name) values('female','Janice');
+insert into givenNames(sex, name) values('female','Julia');
+insert into givenNames(sex, name) values('female','Marie');
+insert into givenNames(sex, name) values('female','Madison');
+insert into givenNames(sex, name) values('female','Grace');
+insert into givenNames(sex, name) values('female','Judy');
+insert into givenNames(sex, name) values('female','Theresa');
+insert into givenNames(sex, name) values('female','Beverly');
+insert into givenNames(sex, name) values('female','Denise');
+insert into givenNames(sex, name) values('female','Marilyn');
+insert into givenNames(sex, name) values('female','Amber');
+insert into givenNames(sex, name) values('female','Danielle');
+insert into givenNames(sex, name) values('female','Abigail');
+insert into givenNames(sex, name) values('female','Brittany');
+insert into givenNames(sex, name) values('female','Rose');
+insert into givenNames(sex, name) values('female','Diana');
+insert into givenNames(sex, name) values('female','Natalie');
+insert into givenNames(sex, name) values('female','Sophia');
+insert into givenNames(sex, name) values('female','Alexis');
+insert into givenNames(sex, name) values('female','Lori');
+insert into givenNames(sex, name) values('female','Kayla');
+insert into givenNames(sex, name) values('female','Jane');
+
+create table familyNames(
+  id int not null auto_increment primary key,
+  name varchar(20) not null
+);
+
+insert into familyNames (name) values("Smith");
+insert into familyNames (name) values("Johnson");
+insert into familyNames (name) values("Williams");
+insert into familyNames (name) values("Brown");
+insert into familyNames (name) values("Jones");
+insert into familyNames (name) values("Miller");
+insert into familyNames (name) values("Davis");
+insert into familyNames (name) values("Garcia");
+insert into familyNames (name) values("Rodriguez");
+insert into familyNames (name) values("Wilson");
+insert into familyNames (name) values("Martinez");
+insert into familyNames (name) values("Anderson");
+insert into familyNames (name) values("Taylor");
+insert into familyNames (name) values("Thomas");
+insert into familyNames (name) values("Hernandez");
+insert into familyNames (name) values("Moore");
+insert into familyNames (name) values("Martin");
+insert into familyNames (name) values("Jackson");
+insert into familyNames (name) values("Thompson");
+insert into familyNames (name) values("White");
+insert into familyNames (name) values("Lopez");
+insert into familyNames (name) values("Lee");
+insert into familyNames (name) values("Gonzalez");
+insert into familyNames (name) values("Harris");
+insert into familyNames (name) values("Clark");
+insert into familyNames (name) values("Lewis");
+insert into familyNames (name) values("Robinson");
+insert into familyNames (name) values("Walker");
+insert into familyNames (name) values("Perez");
+insert into familyNames (name) values("Hall");
+insert into familyNames (name) values("Young");
+insert into familyNames (name) values("Allen");
+insert into familyNames (name) values("Sanchez");
+insert into familyNames (name) values("Wright");
+insert into familyNames (name) values("King");
+insert into familyNames (name) values("Scott");
+insert into familyNames (name) values("Green");
+insert into familyNames (name) values("Baker");
+insert into familyNames (name) values("Adams");
+insert into familyNames (name) values("Nelson");
+insert into familyNames (name) values("Hill");
+insert into familyNames (name) values("Ramirez");
+insert into familyNames (name) values("Campbell");
+insert into familyNames (name) values("Mitchell");
+insert into familyNames (name) values("Roberts");
+insert into familyNames (name) values("Carter");
+insert into familyNames (name) values("Phillips");
+insert into familyNames (name) values("Evans");
+insert into familyNames (name) values("Turner");
+insert into familyNames (name) values("Torres");
+insert into familyNames (name) values("Parker");
+insert into familyNames (name) values("Collins");
+insert into familyNames (name) values("Edwards");
+insert into familyNames (name) values("Stewart");
+insert into familyNames (name) values("Flores");
+insert into familyNames (name) values("Morris");
+insert into familyNames (name) values("Nguyen");
+insert into familyNames (name) values("Murphy");
+insert into familyNames (name) values("Rivera");
+insert into familyNames (name) values("Cook");
+insert into familyNames (name) values("Rogers");
+insert into familyNames (name) values("Morgan");
+insert into familyNames (name) values("Peterson");
+insert into familyNames (name) values("Cooper");
+insert into familyNames (name) values("Reed");
+insert into familyNames (name) values("Bailey");
+insert into familyNames (name) values("Bell");
+insert into familyNames (name) values("Gomez");
+insert into familyNames (name) values("Kelly");
+insert into familyNames (name) values("Howard");
+insert into familyNames (name) values("Ward");
+insert into familyNames (name) values("Cox");
+insert into familyNames (name) values("Diaz");
+insert into familyNames (name) values("Richardson");
+insert into familyNames (name) values("Wood");
+insert into familyNames (name) values("Watson");
+insert into familyNames (name) values("Brooks");
+insert into familyNames (name) values("Bennett");
+insert into familyNames (name) values("Gray");
+insert into familyNames (name) values("James");
+insert into familyNames (name) values("Reyes");
+insert into familyNames (name) values("Cruz");
+insert into familyNames (name) values("Hughes");
+insert into familyNames (name) values("Price");
+insert into familyNames (name) values("Myers");
+insert into familyNames (name) values("Long");
+insert into familyNames (name) values("Foster");
+insert into familyNames (name) values("Sanders");
+insert into familyNames (name) values("Ross");
+insert into familyNames (name) values("Morales");
+insert into familyNames (name) values("Powell");
+insert into familyNames (name) values("Sullivan");
+insert into familyNames (name) values("Russell");
+insert into familyNames (name) values("Ortiz");
+insert into familyNames (name) values("Jenkins");
+insert into familyNames (name) values("Gutierrez");
+insert into familyNames (name) values("Perry");
+insert into familyNames (name) values("Butler");
+insert into familyNames (name) values("Barnes");
+insert into familyNames (name) values("Fisher");
+
+drop procedure if exists deidentify;
+
+delimiter //
+create procedure deidentify(in tbl varchar(50), in field varchar(50), in deidentified_field varchar(50), in create_field tinyint(1))
+begin
+  declare field_val varchar(255);
+  declare deidentified_val varchar(16);
+  declare done int default false;
+  declare c cursor for select distinct f from vw_deidentify_proc;
+  declare continue handler for not found set done = true;
+
+  if create_field then
+    set @alter_sql = concat('alter table ', tbl, ' add ', deidentified_field, ' varchar(16) unique after ', field);
+    prepare alter_stmt from @alter_sql;
+    execute alter_stmt;
+    deallocate prepare alter_stmt;
+  end if;
+
+  -- selecting fields where the deidentified version is null acts as a guard against timeouts when
+  -- processing very large tables.  in such a case, *some* records will get updated, but not all of them,
+  -- and any that haven't yet been *fully* processed will have at least one deidentified field with a
+  -- null value.  so if the function times out, just rerun it.  that partial record will get reprocessed,
+  -- as well as some number of other records, and eventually, with sufficent reruns, all records will
+  -- be processed.
+  set @create_view_sql = concat('create view vw_deidentify_proc as select ', field, ' as f from ', tbl, ' where ', deidentified_field, ' is null');
+  prepare create_view_stmt from @create_view_sql;
+  execute create_view_stmt;
+  deallocate prepare create_view_stmt;
+
+  open c;
+
+  processFields: loop
+    fetch c into field_val;
+    if done = true then
+      leave processFields;
+	end if;
+
+    set deidentified_val = left(sha2(concat(field_val, rand()), 256), 16);
+
+    set @update_sql = concat('update ', tbl, ' set ', deidentified_field, ' = "', deidentified_val, '" where ', field, ' = "', field_val, '"');
+    prepare update_stmt from @update_sql;
+    execute update_stmt;
+    deallocate prepare update_stmt;
+  end loop processFields;
+
+  close c;
+
+  drop view vw_deidentify_proc;
+end;
+//
+delimiter ;
