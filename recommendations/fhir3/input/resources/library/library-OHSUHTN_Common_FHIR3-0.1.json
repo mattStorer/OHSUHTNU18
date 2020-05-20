@@ -1,13 +1,13 @@
 {
   "resourceType": "Library",
-  "id": "ohsuhtn-common",
+  "id": "library-OHSUHTN-Common-FHIR3-0.1",
   "meta": {
     "versionId": "1",
     "lastUpdated": "2020-03-24T11:17:00.000-08:00"
   },
   "url": "https://github.com/mattStorer/OHSUHTNU18/blob/develop/docs/FHIR%20artifacts/hypertension/Library_ohsuhtn-common.json",
   "version": "0.0.1",
-  "name": "OHSUHTN_Common",
+  "name": "OHSUHTN_Common_FHIR3",
   "title": "OHSU Common Hypertension Library",
   "status": "active",
   "experimental": false,
@@ -50,7 +50,7 @@
     {
       "type": "depends-on",
       "resource": {
-        "reference": "Library/fhir-helpers"
+        "reference": "Library/library-FHIRHelpers-3.0.0"
       }
     },
     {

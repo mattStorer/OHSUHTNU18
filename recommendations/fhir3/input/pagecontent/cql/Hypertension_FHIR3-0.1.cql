@@ -1,13 +1,11 @@
-library "Hypertension_FHIR3" version '0.1'
+library Hypertension_FHIR3 version '0.1'
 
 using FHIR version '3.0.0'
 
-include "FHIRHelpers" version '3.0.0' called FHIRHelpers 
-include "CDS_Connect_Commons_for_FHIRv300" version '1.0.1' called C3F 
-include "CDS_Connect_Conversions" version '1' called Convert 
-include "OHSUHTN_Common_FHIR3" version '0.1'
-
-
+include FHIRHelpers version '3.0.0' called FHIRHelpers
+include CDS_Connect_Commons_for_FHIRv300 version '1.0.1' called C3F
+include CDS_Connect_Conversions version '1' called Convert
+include OHSUHTN_Common_FHIR3 version '0.1' called OHSUHTN_Common
 
 
 context Patient
@@ -64,7 +62,7 @@ define "HTN Crisis":
   "HTN Crisis BP"
 
 define "InPopulation":
-   "MeetsInclusionCriteria" 
+   "MeetsInclusionCriteria"
 
 define "Recommendation":
   if "Normal" then 'Patient has Normal blood pressure.  Monitor BP for future elevation.'

@@ -71,7 +71,7 @@
   "copyright": "© OHSU 2020+.",
   "library": [
     {
-      "reference": "Library/hypertension"
+      "reference": "Library/library-Hypertension-FHIR3-0.1"
     }
   ],
   "action": [

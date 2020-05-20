@@ -1,13 +1,13 @@
 {
   "resourceType": "Library",
-  "id": "hypertension",
+  "id": "library-Hypertension-FHIR3-0.1",
   "meta": {
     "versionId": "1",
     "lastUpdated": "2020-04-15T11:00:00.000-08:00"
   },
   "url": "https://github.com/mattStorer/OHSUHTNU18/blob/develop/docs/FHIR%20artifacts/hypertension/Library_hypertension.json",
   "version": "0.1",
-  "name": "Hypertension",
+  "name": "Hypertension_FHIR3",
   "title": "Library - OHSU Logic for identifying hypertension",
   "status": "active",
   "experimental": false,
@@ -70,25 +70,25 @@
     {
       "type": "depends-on",
       "resource": {
-        "reference": "Library/ohsuhtn-common"
+        "reference": "Library/library-OHSUHTN-Common-FHIR3-0.1"
       }
     },
     {
       "type": "depends-on",
       "resource": {
-        "reference": "Library/cds-connect-commons-for-fhirv300"
+        "reference": "Library/library-CDS-Connect-Commons-for-FHIRv300-1.0.1"
       }
     },
     {
       "type": "depends-on",
       "resource": {
-        "reference": "Library/cds-connect-conversions"
+        "reference": "Library/library-CDS-Connect-Conversions-1"
       }
     },
     {
       "type": "depends-on",
       "resource": {
-        "reference": "Library/fhir-helpers"
+        "reference": "Library/library-FHIRHelpers-3.0.0"
       }
     },
     {
