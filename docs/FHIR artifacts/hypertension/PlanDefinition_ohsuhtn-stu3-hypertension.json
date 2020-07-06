@@ -111,7 +111,7 @@
           "dynamicValue": [
             {
               "path": "action.description",
-              "expression": "Rationale"
+              "expression": "Other Information"
             },
             {
               "path": "action.title",
@@ -119,7 +119,7 @@
             },
             {
               "path": "action.extension",
-              "expression": "'info'"
+              "expression": "Info"
             }
           ],
           "action": [
@@ -152,7 +152,7 @@
           "dynamicValue": [
             {
               "path": "action.description",
-              "expression": "Rationale"
+              "expression": "Other Information"
             },
             {
               "path": "action.title",
@@ -160,7 +160,7 @@
             },
             {
               "path": "action.extension",
-              "expression": "'info'"
+              "expression": "Info"
             }
           ],
           "action": [
@@ -193,7 +193,7 @@
           "dynamicValue": [
             {
               "path": "action.description",
-              "expression": "Rationale"
+              "expression": "Other Information"
             },
             {
               "path": "action.title",
@@ -201,7 +201,7 @@
             },
             {
               "path": "action.extension",
-              "expression": "'warning'"
+              "expression": "Warning"
             }
           ],
           "action": [
@@ -234,7 +234,7 @@
           "dynamicValue": [
             {
               "path": "action.description",
-              "expression": "Rationale"
+              "expression": "Other Information"
             },
             {
               "path": "action.title",
@@ -242,7 +242,7 @@
             },
             {
               "path": "action.extension",
-              "expression": "'warning'"
+              "expression": "Warning"
             }
           ],
           "action": [
@@ -275,7 +275,7 @@
           "dynamicValue": [
             {
               "path": "action.description",
-              "expression": "Rationale"
+              "expression": "Other Information"
             },
             {
               "path": "action.title",
@@ -283,7 +283,7 @@
             },
             {
               "path": "action.extension",
-              "expression": "'warning'"
+              "expression": "Warning"
             }
           ],
           "action": [

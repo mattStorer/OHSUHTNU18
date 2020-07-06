@@ -106,15 +106,14 @@ function populateSummaryDiv(data, el) {
             totalDiastolic += o.diastolic;
         });
 
-        let x = 100000000;
-        avgSystolic = Math.round((totalSystolic * x) / data.length) / x;
-        avgDiastolic = Math.round((totalDiastolic * x) / data.length) / x;
+        avgSystolic = Math.round(totalSystolic / data.length);
+        avgDiastolic = Math.round(totalDiastolic / data.length);
 
 //        avgSystolic = Math.round(totalSystolic / data.length);
 //        avgDiastolic = Math.round(totalDiastolic / data.length);
     }
 
-    $(el).html("Average BP: " + avgSystolic + "/" + avgDiastolic);
+    $(el).html("<div id='avgBP'>Average BP:<br/>" + avgSystolic + "/" + avgDiastolic + "</div>");
 }
 
 function populateBPList(data, el) {

@@ -7,8 +7,16 @@ include CDS_Connect_Commons_for_FHIRv300 version '1.0.1' called C3F
 include CDS_Connect_Conversions version '1' called Convert
 include OHSUHTN_Common_FHIR3 version '0.1' called OHSUHTN_Common
 
-
 context Patient
+
+define "Info":
+  'info'
+
+define "Warning":
+  'warning'
+
+define "Critical":
+  'critical'
 
 define "Adult at start of Measurement Period":
   "OHSUHTN_Common"."Adult at start of Measurement Period"
@@ -79,5 +87,6 @@ define "Rationale":
   else if "Elevated" then 'Merely elevated BP isn\'t anything to get too concerned about, but we don\'t want it getting any higher.'
   else if "Normal" then 'No treatment is needed for those with normal BP.'
   else null
+
 define "Errors":
   null

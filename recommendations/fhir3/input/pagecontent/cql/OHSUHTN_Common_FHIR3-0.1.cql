@@ -12,13 +12,17 @@ code "Blood Pressure": '55284-4' from "LOINC" display 'blood pressure'
 code "Systolic Blood Pressure": '8480-6' from "LOINC" display 'Systolic blood pressure'
 code "Diastolic Blood Pressure": '8462-4' from "LOINC" display 'Diastolic blood pressure'
 
+parameter MeasurementPeriod default Interval[
+  @2019-01-01T00:00:00.0,
+  @2019-06-30T23:59:59.0
+)
+
 context Patient
 
-define "Measurement Period":
-  Interval[@2019-01-01T00:00:00.0, @2019-06-30T23:59:59.0]
-
 define "Adult at start of Measurement Period":
-  AgeInYearsAt(start of "Measurement Period") >= 18
+  AgeInYearsAt(start of MeasurementPeriod) >= 18
+
+// Blood Pressure Stuff /////////////////
 
 define "Normal BP":
   "Avg BP" O
@@ -54,6 +58,33 @@ define "Systolic BP Variability":
     return all FHIRHelpers.ToQuantity(singleton from (O.component C where FHIRHelpers.ToConcept(C.code) ~ "Systolic Blood Pressure").value)
   )
 
+// Screening
+define "Avg Last 4 BP String":
+  "Avg Last 4 BP" O
+    return ToString(Round(O.systolic.value)) + '/' + ToString(Round(O.diastolic.value)) + ' ' + O.systolic.unit
+
+// Screening
+define "Avg Last 4 BP":
+  Tuple { systolic: "Avg Last 4 Systolic BP", diastolic: "Avg Last 4 Diastolic BP" }
+
+// Screening
+define "Avg Last 4 Systolic BP":
+  Avg("Last 4 Blood Pressure Observations" O
+    return all FHIRHelpers.ToQuantity(singleton from (O.component C where FHIRHelpers.ToConcept(C.code) ~ "Systolic Blood Pressure").value)
+  )
+
+// Screening
+define "Avg Last 4 Diastolic BP":
+  Avg("Last 4 Blood Pressure Observations" O
+    return all FHIRHelpers.ToQuantity(singleton from (O.component C where FHIRHelpers.ToConcept(C.code) ~ "Diastolic Blood Pressure").value)
+  )
+
+// Screening
+define "Last 4 Blood Pressure Observations":
+  Take(("Blood Pressure Observations" O
+    sort by issued desc
+  ), 4)
+
 define "Avg BP String":
   "Avg BP" O
     return ToString(Round(O.systolic.value)) + '/' + ToString(Round(O.diastolic.value)) + ' ' + O.systolic.unit
@@ -73,8 +104,12 @@ define "Avg Diastolic BP":
 
 define "Blood Pressure Observations":
    [Observation: "Blood Pressure"] O
-   where "Normalize Interval"(O.effective) during "Measurement Period"
+   where "Normalize Interval"(O.effective) during MeasurementPeriod
       and O.status in { 'final', 'amended' }
+
+
+/////////////////////////////////////////
+
 
 define function "Normalize Interval"(choice Choice<FHIR.dateTime, FHIR.Period, FHIR.Timing, FHIR.instant, FHIR.string, FHIR.Age, FHIR.Range>):
   case

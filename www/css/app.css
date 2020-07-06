@@ -126,7 +126,8 @@ span.cardTitle {
 
 span.cardDetail {
     display: block;
-    font-style: italic;
+    color: red;
+    font-weight: bold;
 }
 
 #sliderContainer {
@@ -154,4 +155,11 @@ span.cardDetail {
 #sliderRangeTo {
     width: 40px;
     text-align: center;
+}
+
+#avgBP {
+  margin-top: 10px;
+  font-size: x-large;
+  font-weight: bold;
+  text-align: center;
 }

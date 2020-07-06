@@ -1,0 +1,102 @@
+Running tests.
+Data path: C:\git\OHSUHTNU18\recommendations\fhir3\input\tests\Screening_FHIR3-0.1
+Terminology path: C:\git\OHSUHTNU18\recommendations\fhir3\input\vocabulary\valueset
+Test Screening3
+Mon Jul 06 2020 09:04:50 GMT-0700 (Pacific Daylight Time)
+Patient = org.hl7.fhir.dstu3.model.Patient@93e4ddc6
+Info = info
+Warning = warning
+Critical = critical
+Adult at start of Measurement Period = true
+All Essential Hypertension Diagnosis Conditions = []
+Any Essential Hypertension Diagnosis Ever = false
+Minimum HTN Stage 1 BP over Last 4 readings = true
+Inclusion Criteria = false
+Pregnancy Observations = []
+Became Pregnant During Measurement Period = false
+Secondary Hypertension Conditions = []
+Secondary Hypertension Right Now = false
+ESRD Conditions = []
+Any ESRD Ever = false
+Hospice Conditions = []
+Any Hospice Ever = false
+Exclusion Criteria = false
+In Population = false
+Recommendation = null
+Rationale = null
+elapsed: 7.932 seconds
+
+Test Screening2
+Mon Jul 06 2020 09:04:50 GMT-0700 (Pacific Daylight Time)
+Patient = org.hl7.fhir.dstu3.model.Patient@700a91a5
+Info = info
+Warning = warning
+Critical = critical
+Adult at start of Measurement Period = true
+All Essential Hypertension Diagnosis Conditions = []
+Any Essential Hypertension Diagnosis Ever = false
+Minimum HTN Stage 1 BP over Last 4 readings = false
+Inclusion Criteria = false
+Pregnancy Observations = []
+Became Pregnant During Measurement Period = false
+Secondary Hypertension Conditions = []
+Secondary Hypertension Right Now = false
+ESRD Conditions = []
+Any ESRD Ever = false
+Hospice Conditions = []
+Any Hospice Ever = false
+Exclusion Criteria = false
+In Population = false
+Recommendation = null
+Rationale = null
+elapsed: 8.081 seconds
+
+Test Screening4
+Mon Jul 06 2020 09:04:50 GMT-0700 (Pacific Daylight Time)
+Patient = org.hl7.fhir.dstu3.model.Patient@7f8289fa
+Info = info
+Warning = warning
+Critical = critical
+Adult at start of Measurement Period = true
+All Essential Hypertension Diagnosis Conditions = []
+Any Essential Hypertension Diagnosis Ever = false
+Minimum HTN Stage 1 BP over Last 4 readings = true
+Inclusion Criteria = false
+Pregnancy Observations = []
+Became Pregnant During Measurement Period = false
+Secondary Hypertension Conditions = []
+Secondary Hypertension Right Now = false
+ESRD Conditions = []
+Any ESRD Ever = false
+Hospice Conditions = []
+Any Hospice Ever = false
+Exclusion Criteria = false
+In Population = false
+Recommendation = null
+Rationale = null
+elapsed: 8.177 seconds
+
+Test Screening1
+Mon Jul 06 2020 09:04:50 GMT-0700 (Pacific Daylight Time)
+Patient = org.hl7.fhir.dstu3.model.Patient@64d34c0f
+Info = info
+Warning = warning
+Critical = critical
+Adult at start of Measurement Period = true
+All Essential Hypertension Diagnosis Conditions = [org.hl7.fhir.dstu3.model.Condition@399a042b]
+Any Essential Hypertension Diagnosis Ever = true
+Minimum HTN Stage 1 BP over Last 4 readings = true
+Inclusion Criteria = true
+Pregnancy Observations = []
+Became Pregnant During Measurement Period = false
+Secondary Hypertension Conditions = []
+Secondary Hypertension Right Now = false
+ESRD Conditions = []
+Any ESRD Ever = false
+Hospice Conditions = []
+Any Hospice Ever = false
+Exclusion Criteria = false
+In Population = true
+Recommendation = is in population, provide recommendation
+Rationale = is in population, provide rationale
+elapsed: 8.52 seconds
