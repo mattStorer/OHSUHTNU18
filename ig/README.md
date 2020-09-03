@@ -1,2 +1,2 @@
-# sample-ig
-A sample, template-driven implementation guide that provides a starting environment to use a base for defining new IGs
+# ohsu-htn-u18
+An HL7 implementation guide for the FHIR app associated with OHSU's Hypertension U18 grant.
