@@ -10,14 +10,14 @@
     "coding": [
       {
         "system": "http://snomed.info/sct",
-        "code": "169565003",
-        "display": "Pregnancy"
+        "code": "21243004",
+        "display": "Pregnancy Outcome"
       }
     ],
-    "text": "Pregnant - planned (finding)"
+    "text": "Term birth of newborn (finding)"
   },
   "subject": {
     "reference": "Patient/2daacd506bc4659c"
   },
-  "effectiveDateTime": "2019-08-01T10:00:00-08:00"
+  "effectiveDateTime": "2020-04-15T11:00:00-08:00"
 }

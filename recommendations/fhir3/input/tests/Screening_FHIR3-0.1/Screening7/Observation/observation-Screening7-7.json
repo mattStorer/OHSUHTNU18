@@ -1,6 +1,6 @@
 {
   "resourceType": "Observation",
-  "id": "23852",
+  "id": "observation-Screening7-7",
   "meta": {
     "versionId": "1",
     "lastUpdated": "2020-06-30T22:00:38.000+00:00"
@@ -17,7 +17,7 @@
     "text": "Pregnant - planned (finding)"
   },
   "subject": {
-    "reference": "Patient/2daacd506bc4659c"
+    "reference": "Patient/Screening7"
   },
-  "effectiveDateTime": "2019-08-01T10:00:00-08:00"
+  "effectiveDateTime": "2020-02-05T10:00:00-08:00"
 }

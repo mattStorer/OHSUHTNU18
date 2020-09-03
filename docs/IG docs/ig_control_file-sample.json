@@ -1,0 +1,99 @@
+ {
+   "source": "[ig]", // the name of the ImplementationGuide resource file to load. optional, default = ig.xml
+   "version" : "[optional - see below]. default = current build",
+   "fixed-business-version" : "[optional - see below]. default = none",
+   "license" : [xxx]",// [required - see below].,
+   "logging" : "[optional - "see below]  default = none",
+   "html-template" : "[optional - see below]. default = none",
+   "suppressedWarningFile": "[optional - see below] default = none",
+   "suppress-qa" : true | false, // suppress the generation of the QA folder content. default = don't suppress
+   "paths" : { // see paths below. optional- defaults apply
+     "resources" : [  // optional; default = "resources"
+       "[resourcesFolder]" 
+      ],
+     "pages" : [ // optional; default = "pages"
+       "[pagesFolder]"
+     ],
+     "temp" : "[temp]",  // optional; default = "temp"
+     "output" : "[output]",  // optional; default = "output" (and must be output for auto-build)
+     "txCache" : "[txCache]",  // optional; default = "no value - txCache not in version control (slower builds)"
+     "qa" : "[qa]",  // optional; default = "qc"
+     "history" : "[history page]",  // optional; default = no page marked as history page
+     "specification" : "[specification]"  // optional; default = "http://hl7.org/fhir"
+   },
+   "npm-name" : "[node Package Name - see below]",
+   "npm-template" : "[Optional npm package template file]",
+   "jurisdiction" : "[code]", // see Jurisdiction below. optional
+   "language" : "[language]", // see 'Language support' below. optional
+   "languages" : [ // optional 
+     "[language]"
+   ],
+   "pre-process" : [{ // optional section see below
+      "folder" : "[folder]",
+      "transform" : "[xslt file (conditional)]",
+      "relativePath" : "[relative path (conditional)]"
+   }],
+   "sct-edition" : "[uri - see below", // optional - defaults to SCT International
+   "no-inactive-codes" : true | false,  // optional; default = false
+   "broken-links" : "warning | error", // optional; default to warning, but can be error (stops the build)
+   "check-aggregation" : true, // Warning if aggregation not declared on differential elements of type Reference
+   "check-mustSupport" : true, // Warning if mustSupport not declared on elements appearing in differential
+   "append-slash-to-dependency-urls" : false, // true if the publisher should append / to dependency URLs in the jekyll data file (default false for legacy reasons)
+   "anyExtensionsAllowed" : false, // If false, raises an error if unrecognized encounters are encountered, otherwise only an 'information' message
+   "hintAboutNonMustSupport", : true //Info validation if elements appear in examples when not marked as mustSupport=true in one of the corresponding profiles
+   "gen-examples" : true, // optional, see below (processing options)
+   "do-transforms" : true, // optional, see below (processing options)
+   "canonicalBase": "[where this will be published - see above]. Mandatory",
+   "dependencyList": [  // optional
+     // a list of other implementation guides that this guide depends on
+     // e.g. uses profiles, value sets, code systems etc
+     // zero or more of this object:
+     {
+        "name" : "[name of the IG, for logging, and Jekyll variable name for location]",
+        "package" : "[NPM package id of the IG]",
+        "location" : "[http address where the IG lives (not needed if package is specified)]",
+        "version" : "[version, or 'current' or 'dev']",
+        "source" : "[optional folder to get the definitions from (relative). Should not be required]"
+     }
+   ],
+   "extension-domains" : [ 
+     "[url]" // list of domains from which undeclared extensions are allowed to come from
+   ],
+   // Templates lists any additional templates beyond "base" and "format" that can be generated for one or more artifact types
+   // The list of template names below are examples
+   "extraTemplates": ["mapping", "foo", "bar"],
+   "defaults": {
+     // this object contains the default publishing policy for different types. 
+     // Anything not mentioned defaults to true
+     "Any": {
+       // fragment and template options - see below. example:
+       "xml" : false, // don't produce xml example
+       "template-base" : "sometemplatefile.html"  // use this as the default template for all base pages if not overridden
+     },
+     "[Type]": {
+       // fragment and template options - see below
+     }
+   },
+   "spreadsheets" : [
+     "[filename]" // see using spreadsheets
+   ], 
+   "bundles" : [
+     "[id]" // see using bundles below
+   ],
+   "resources": {
+     "[Type]/[id]": {
+       "source" : "[optional source file]", 
+       "version" : "[optional version]",
+       // template and fragment options - see below.  E.g.
+       "base": "[overridden name for destination page for things referring to this resource]",
+       "template-defns": "[template to use for resource definitions]",
+     }
+   },
+   "special-urls" : [
+     // list of special URLs - see below
+   ],
+   "swagger" : [
+     // see swagger section below
+   ],
+   "tool" : "jekyll" // the tool used for the 3rd step of the build. See tooling below
+ }

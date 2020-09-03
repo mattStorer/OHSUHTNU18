@@ -1,0 +1,84 @@
+HTN weekly meeting 7/16:
+
+need a way to implement IG in drafter/demo area on build.fhir.org, copy the template in some way, and the need to fill out the individual components.  stuck before where we didn't have any idea how to do that, the IG initiation the way they described, so we nee the answer to that first and foremost, then develop proces to take stuff we've developed and put it into that format so it can be shared and reviewed.  that will be our work product to be reviewed at weekly/monthly meetings.  organizes everything for us.  it apperas to be the dominant strategy
+
+
+
+* speak with Bryn et al about getting started with setting up an IG
+  - see https://wiki.hl7.org/index.php?title=IG_Publisher_Documentation
+  - see https://github.com/cqframework/opioid-cds
+  - see 
+
+
+* TODO: include Chris, Rob McClure, Bryn, Sean, cc Dave, on email regarding meeting to get started using IGs, how to set that up and get oriented with it
+
+
+-------------
+
+following instructions at https://wiki.hl7.org/index.php?title=IG_Publisher_Documentation
+
+using FHIR IG Publisher
+-----------------------
+1. clone https://github.com/HL7/fhir-ig-publisher.git
+   (DO NOT try to download the JAR from the instructions page directly, it is a dead link)
+2. run 'mvn install' in /fhir-ig-publisher/
+3. run 'java -jar org.hl7.fhir.publisher.cli/target/org.hl7.fhir.publisher.cli-1.1.4-SNAPSHOT.jar'
+4. need to be able to specify an "implementation guide JSON control file" 
+   (see 'ig_control_file-sample.json')
+5. install Ruby and Jekyll (see instructions for links and details)
+6. run tests
+   (DO NOT try to run the tests specified in the documentation, they refer to folders and JARs that do not exist)
+   instead, found test IGs at the following location:
+   C:\git\fhir-ig-publisher\org.hl7.fhir.publisher.core\src\test\resources\test-igs\new\ig-dir
+   
+error running test:
+storer@RNB02563 MINGW64 /c/git/fhir-ig-publisher (master)
+$ java -jar org.hl7.fhir.publisher.cli/target/org.hl7.fhir.publisher.cli-1.1.4-SNAPSHOT.jar -ig C:\git\fhir-ig-publisher\org.hl7.fhir.publisher.core\src\test\resours\test-igs\old\ig30\test-ig.json -tool jekyll -out out -spec http://hl7-fhir.github.io/ -watchkyll -out out -specFHIR IG Publisher Version 1.1.4-SNAPSHOT (Git# 89d8b87b1e7d). Built 2020-07-21T14:49:12.783-07:00 (94 mins old)
+File log: C:\Users\storer\AppData\Local\Temp\1\fhir-ig-publisher-tmp.log
+Detected Java version: 1.8.0_251 from C:\Program Files (x86)\Java\jre1.8.0_251 on x86 (32bit). 247MB available
+Parameters: -ig C:gitfhir-ig-publisherorg.hl7.fhir.publisher.coresrctestresourcestest-igsoldig30test-ig.json -tool jekyll -out out -spec http://hl7-fhir.github.io/ atch
+
+dir = C:\git\fhir-ig-publisher, path = C:\Users\storer\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Progr Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\storer\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Proam Files\AdoptOpenJDK\jdk-11.0.6.10-openj9\bin;C:\Python27;C:\Python27\Scripts;C:\Program Files\Java\jdk1.8.0_221\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\Syst32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\Program Files\Dell\Dell Data Protection\Encryption;C:\Program Files\dotnet;C:\Program Files\Microsoft SQL Serv\130\Tools\Binn;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn;C:\Program Files\Git\cmd;C:\Gradle\gradle-5.6.2\bin;C:\Program Files (x86)\Microft SQL Server\150\DTS\Binn;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs;C:\Program Files (x86)\Webex\Plugins;C:\Ruby27-x64\bin;C:\Program Files\MySQL\MySQShell 8.0\bin;C:\Users\storer\AppData\Local\atom\bin;C:\Program Files\maven3\bin;C:\Users\storer\AppData\Roaming\npm;C:\Users\storer\libs;C:\Program Files\Git\usr\b\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
+
+Run time = Tuesday, July 21, 2020 4:23:30 PM PDT (2020-07-21T16:23:30-07:00)
+Exception in thread "main" java.lang.Exception: Unable to find the nominated IG at C:\git\fhir-ig-publisher\gitfhir-ig-publisherorg.hl7.fhir.publisher.coresrctestreurcestest-igsoldig30test-ig.json
+        at org.hl7.fhir.igtools.publisher.Publisher.determineActualIG(Publisher.java:7957)
+        at org.hl7.fhir.igtools.publisher.Publisher.main(Publisher.java:7799)
+
+----------------
+
+slightly better luck with this:
+
+storer@RNB02563 MINGW64 /c/git/fhir-ig-publisher (master)
+$ java -jar org.hl7.fhir.publisher.cli/target/org.hl7.fhir.publisher.cli-1.1.4-SNAPSHOT.jar -ig org.hl7.fhir.publisher.core\\src\\test\\resources\\test-igs\\new\\ig-dir\\resources\\ig-new.json
+FHIR IG Publisher Version 1.1.4-SNAPSHOT (Git# 89d8b87b1e7d). Built 2020-07-21T14:49:12.783-07:00 (98 mins old)
+File log: C:\Users\storer\AppData\Local\Temp\1\fhir-ig-publisher-tmp.log
+Detected Java version: 1.8.0_251 from C:\Program Files (x86)\Java\jre1.8.0_251 on x86 (32bit). 247MB available
+Parameters: -ig org.hl7.fhir.publisher.core\src\test\resources\test-igs\new\ig-dir\resources\ig-new.json
+
+dir = C:\git\fhir-ig-publisher, path = C:\Users\storer\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\storer\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\AdoptOpenJDK\jdk-11.0.6.10-openj9\bin;C:\Python27;C:\Python27\Scripts;C:\Program Files\Java\jdk1.8.0_221\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\Program Files\Dell\Dell Data Protection\Encryption;C:\Program Files\dotnet;C:\Program Files\Microsoft SQL Server\130\Tools\Binn;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn;C:\Program Files\Git\cmd;C:\Gradle\gradle-5.6.2\bin;C:\Program Files (x86)\Microsoft SQL Server\150\DTS\Binn;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs;C:\Program Files (x86)\Webex\Plugins;C:\Ruby27-x64\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin;C:\Users\storer\AppData\Local\atom\bin;C:\Program Files\maven3\bin;C:\Users\storer\AppData\Roaming\npm;C:\Users\storer\libs;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
+
+Run time = Tuesday, July 21, 2020 4:27:16 PM PDT (2020-07-21T16:27:16-07:00)
+Package Cache: C:\Users\storer\.fhir\packages                                    (00:00.0187)
+Load Configuration from C:\git\fhir-ig-publisher\org.hl7.fhir.publisher.core\src\test\resources\test-igs\new\ig-dir\resources\ig-new.json (00:00.0190)
+Root directory: C:\git\fhir-ig-publisher\org.hl7.fhir.publisher.core\src\test\resources\test-igs\new\ig-dir\resources (00:00.0202)
+Publishing Content Failed: null                                                  (00:00.0209)
+                                                                                 (00:00.0210)
+Use -? to get command line help                                                  (00:00.0214)
+                                                                                 (00:00.0215)
+Stack Dump (for debugging):                                                      (00:00.0218)
+java.lang.NullPointerException
+        at org.hl7.fhir.igtools.publisher.Publisher.initializeFromJson(Publisher.java:1984)
+        at org.hl7.fhir.igtools.publisher.Publisher.initialize(Publisher.java:1369)
+        at org.hl7.fhir.igtools.publisher.Publisher.execute(Publisher.java:702)
+        at org.hl7.fhir.igtools.publisher.Publisher.main(Publisher.java:7835)
+
+storer@RNB02563 MINGW64 /c/git/fhir-ig-publisher (master)
+
+
+
+****************************
+
+should probably get help from Bryn et al, as the IG Publisher documentation is evidently woefully out of date.  files don't exist, things are named differently, tests aren't the same, etc.
+
+
