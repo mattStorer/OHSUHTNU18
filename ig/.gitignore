@@ -4,6 +4,9 @@ temp
 template
 output
 
+# ignore CQL test results
+/input/tests/results
+
 # Don't commit this because it's so large #
 ###########################################
 /input-cache/org.hl7.fhir.publisher.jar
