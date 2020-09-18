@@ -1,11 +1,8 @@
-library Hypertension_FHIR3 version '0.1'
+library Hypertension version '0.1'
 
-using FHIR version '3.0.0'
+using FHIR version '4.0.1'
 
-include FHIRHelpers version '3.0.0' called FHIRHelpers
-include CDS_Connect_Commons_for_FHIRv300 version '1.0.1' called C3F
-include CDS_Connect_Conversions version '1' called Convert
-include OHSUHTN_Common_FHIR3 version '0.1' called OHSUHTN_Common
+include OHSUHTN_Common version '0.1' called Common
 
 context Patient
 
@@ -19,22 +16,22 @@ define "Critical":
   'critical'
 
 define "Adult at start of Measurement Period":
-  "OHSUHTN_Common"."Adult at start of Measurement Period"
+  "Common"."Adult at start of Measurement Period"
 
 define "Normal BP":
-  ("OHSUHTN_Common"."Normal BP") is not null
+  ("Common"."Normal BP") is not null
 
 define "Elevated BP":
-  ("OHSUHTN_Common"."Elevated BP") is not null
+  ("Common"."Elevated BP") is not null
 
 define "HTN Stage 1 BP":
-  ("OHSUHTN_Common"."HTN Stage 1 BP") is not null
+  ("Common"."HTN Stage 1 BP") is not null
 
 define "HTN Stage 2 BP":
-  ("OHSUHTN_Common"."HTN Stage 2 BP") is not null
+  ("Common"."HTN Stage 2 BP") is not null
 
 define "HTN Crisis BP":
-  ("OHSUHTN_Common"."HTN Crisis BP") is not null
+  ("Common"."HTN Crisis BP") is not null
 
 define "MeetsInclusionCriteria":
   "Adult at start of Measurement Period"

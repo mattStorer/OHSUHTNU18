@@ -1,8 +1,8 @@
 library test_FHIR3 version '0.1'
 
-using FHIR version '3.0.0'
+using FHIR version '4.0.1'
 
-include FHIRHelpers version '3.0.0' called FHIRHelpers
+include FHIRHelpers version '4.0.0' called FHIRHelpers
 
 context Patient
 
@@ -35,4 +35,3 @@ define "List of Strings":
 
 define "List of Dates":
   { @1999-12-31, @2005-05-05, @2020-06-17 }
-
